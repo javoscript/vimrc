@@ -4,14 +4,9 @@ return {
     "editorconfig/editorconfig-vim",
     -- "tpope/vim-fugitive",                -- TODO
     { "numToStr/Comment.nvim", opts = {} },
-    -- { "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } } -- TODO: see if better tree
-    -- "nvim-lualine/lualine.nvim"          -- TODO: see if better status line
-    -- "akinsho/toggleterm.nvim"            -- TODO: see if useful
-    -- "ahmedkhalf/project.nvim"            -- TODO: see if useful
     "tpope/vim-surround",
     "mg979/vim-visual-multi",
-    { "folke/which-key.nvim", opts = {} },  -- TODO: check if needed
-    -- "antoinemadec/FixCursorHold.nvim"    -- TODO: This is needed to fix lsp doc highlight
+    { "folke/which-key.nvim", opts = {} },
     {
         "catppuccin/nvim",
         lazy = false,
@@ -32,5 +27,4 @@ return {
             ]])
         end
     }
-    -- { "simrat39/symbols-outline.nvim", opts = {} }       -- TODO: replace it with a "symbols" finder in telescope?
 }

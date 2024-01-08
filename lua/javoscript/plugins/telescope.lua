@@ -29,6 +29,7 @@ return {
                         ["<C-k>"] = actions.move_selection_previous,
 
                         ["<C-c>"] = actions.close,
+                        ["<C-d>"] = actions.delete_buffer,
 
                         ["<CR>"] = actions.select_default,
                         ["<C-x>"] = actions.select_horizontal,
@@ -36,7 +37,7 @@ return {
                         ["<C-t>"] = actions.select_tab,
 
                         ["<C-u>"] = actions.preview_scrolling_up,
-                        ["<C-d>"] = actions.preview_scrolling_down,
+                        -- ["<C-d>"] = actions.preview_scrolling_down,
 
                         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
                         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,

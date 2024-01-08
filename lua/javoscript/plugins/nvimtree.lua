@@ -8,7 +8,8 @@ return {
             auto_reload_on_write = true,
             disable_netrw = true,
             hijack_netrw = true,
-            -- hijack_cursor = false, -- check if needed
+            hijack_cursor = false,
+            hijack_unnamed_buffer_when_opening = false,
             update_cwd = true,
             hijack_directories = {
                 enable = true,
