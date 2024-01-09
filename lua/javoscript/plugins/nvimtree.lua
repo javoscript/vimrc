@@ -1,7 +1,7 @@
-return { 
+return {
     "nvim-tree/nvim-tree.lua",
     dependencies = {
-        "nvim-tree/nvim-web-devicons"
+        "nvim-tree/nvim-web-devicons",
     },
     config = function()
         require("nvim-tree").setup({
@@ -10,7 +10,8 @@ return {
             hijack_netrw = true,
             hijack_cursor = false,
             hijack_unnamed_buffer_when_opening = false,
-            update_cwd = true,
+            sync_root_with_cwd = true,
+            respect_buf_cwd = true,
             hijack_directories = {
                 enable = true,
                 auto_open = true,
@@ -18,10 +19,11 @@ return {
             update_focused_file = {
                 enable = true,
                 update_cwd = true,
+                update_root = true,
                 ignore_list = {},
             },
             view = {
-                signcolumn = "yes"
+                signcolumn = "yes",
             },
             renderer = {
                 indent_markers = {
@@ -45,8 +47,8 @@ return {
                             -- deleted = "",
                             -- untracked = "+",
                             -- ignored = "◌",
-                        }
-                    }
+                        },
+                    },
                 },
             },
             diagnostics = {
@@ -87,7 +89,7 @@ return {
                 vim.keymap.set("n", "o", api.node.open.edit, opts("Open"))
                 vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close Directory"))
                 vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
-            end
+            end,
         })
-    end
+    end,
 }
