@@ -11,6 +11,7 @@ return {
                 "stylua",
                 "pint",
                 "prettier",
+                "markdownlint",
             },
             automatic_installation = true,
             handlers = {},

@@ -1,6 +1,6 @@
 return {
     "nvim-lua/plenary.nvim",
-    "nvim-lua/popup.nvim",                -- TODO: check if needed
+    "nvim-lua/popup.nvim", -- TODO: check if needed
     "editorconfig/editorconfig-vim",
     -- "tpope/vim-fugitive",                -- TODO
     { "numToStr/Comment.nvim", opts = {} },
@@ -11,9 +11,18 @@ return {
         "catppuccin/nvim",
         lazy = false,
         priority = 1000,
+        -- config = function()
+        --     vim.cmd([[colorscheme catppuccin-mocha]])
+        -- end,
+    },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
         config = function()
-            vim.cmd([[colorscheme catppuccin-mocha]])
-        end
+            vim.cmd([[colorscheme tokyonight-night]])
+        end,
     },
     { "aserowy/tmux.nvim", opts = {} },
     { "folke/zen-mode.nvim", opts = {} },
@@ -23,8 +32,23 @@ return {
             vim.cmd([[
                 let g:test#strategy = 'neovim'
                 let test#neovim#term_position = "vert"
-                " let g:test#neovim#start_normal = 1
+                let g:test#neovim#start_normal = 1
             ]])
-        end
-    }
+        end,
+    },
+    -- lazy.nvim
+    {
+        "folke/noice.nvim",
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+        },
+        event = "VeryLazy",
+        opts = {
+            presets = {
+                command_palette = true, -- position the cmdline and popupmenu together
+                long_message_to_split = true,
+                lsp_doc_border = true,
+            },
+        },
+    },
 }

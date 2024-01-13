@@ -2,9 +2,8 @@ return {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
-            { 'williamboman/mason.nvim', config = true },
-            'williamboman/mason-lspconfig.nvim',
-            { 'j-hui/fidget.nvim', opts = {} },
+            { "williamboman/mason.nvim", config = true },
+            "williamboman/mason-lspconfig.nvim",
             "hrsh7th/cmp-nvim-lsp",
         },
         config = function()
@@ -13,12 +12,12 @@ return {
                     Lua = {
                         workspace = { checkThirdParty = false },
                         telemetry = false,
-                    }
+                    },
                 },
                 rust_analyzer = {},
                 phpactor = {},
                 volar = {},
-                tailwindcss = {}
+                tailwindcss = {},
             }
 
             require("mason").setup()
@@ -41,8 +40,8 @@ return {
                         settings = servers[server_name],
                         filetypes = (servers[server_name] or {}).filetypes,
                     })
-                end
+                end,
             })
-        end
-    }
+        end,
+    },
 }

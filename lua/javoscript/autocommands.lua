@@ -21,3 +21,12 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
         require("nvim-tree.api").tree.toggle({ focus = false, find_file = true })
     end,
 })
+
+local au_obsidian = vim.api.nvim_create_augroup("obsidian", { clear = true })
+vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged" }, {
+    group = au_obsidian,
+    pattern = { vim.fn.expand("~") .. "/Notes/vault*" },
+    callback = function(_ev)
+        vim.api.nvim_win_set_option(0, "conceallevel", 1)
+    end,
+})

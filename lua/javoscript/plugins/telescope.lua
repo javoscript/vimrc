@@ -6,8 +6,8 @@ return {
             "nvim-telescope/telescope-fzf-native.nvim",
             build = "make",
             cond = function()
-                return vim.fn.executable 'make' == 1
-            end
+                return vim.fn.executable("make") == 1
+            end,
         },
         "nvim-telescope/telescope-ui-select.nvim", -- TODO: not sure if working
     },
@@ -17,6 +17,12 @@ return {
 
         telescope.setup({
             defaults = {
+                sorting_strategy = "ascending",
+                layout_config = {
+                    horizontal = {
+                        prompt_position = "top",
+                    },
+                },
                 file_ignore_patterns = {
                     ".*/vendor/.*",
                 },
@@ -29,15 +35,15 @@ return {
                         ["<C-k>"] = actions.move_selection_previous,
 
                         ["<C-c>"] = actions.close,
-                        ["<C-d>"] = actions.delete_buffer,
+                        ["<C-S-d>"] = actions.delete_buffer,
 
                         ["<CR>"] = actions.select_default,
-                        ["<C-x>"] = actions.select_horizontal,
+                        ["<C-s>"] = actions.select_horizontal,
                         ["<C-v>"] = actions.select_vertical,
                         ["<C-t>"] = actions.select_tab,
 
                         ["<C-u>"] = actions.preview_scrolling_up,
-                        -- ["<C-d>"] = actions.preview_scrolling_down,
+                        ["<C-d>"] = actions.preview_scrolling_down,
 
                         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
                         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
@@ -83,10 +89,10 @@ return {
             extensions = {
                 ["ui-select"] = {
                     require("telescope.themes").get_dropdown({}),
-                }
-            }
+                },
+            },
         })
 
         telescope.load_extension("ui-select")
-    end
+    end,
 }
