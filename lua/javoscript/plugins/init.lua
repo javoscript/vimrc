@@ -11,17 +11,8 @@ return {
         "catppuccin/nvim",
         lazy = false,
         priority = 1000,
-        -- config = function()
-        --     vim.cmd([[colorscheme catppuccin-mocha]])
-        -- end,
-    },
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {},
         config = function()
-            vim.cmd([[colorscheme tokyonight-night]])
+            vim.cmd([[colorscheme catppuccin-mocha]])
         end,
     },
     { "aserowy/tmux.nvim", opts = {} },
@@ -50,5 +41,10 @@ return {
                 lsp_doc_border = true,
             },
         },
+    },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {},
     },
 }

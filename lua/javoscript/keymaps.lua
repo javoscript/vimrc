@@ -77,6 +77,7 @@ vim.keymap.set("n", "<Leader>sh", "<cmd>Telescope help_tags<CR>", opts)
 vim.keymap.set("n", "<Leader>sk", "<cmd>Telescope keymaps<CR>", opts)
 vim.keymap.set("n", "<Leader>sC", "<cmd>Telescope commands<CR>", opts)
 
+vim.keymap.set("n", "<Leader>ql", "<cmd>TodoQuickFix<CR>", opts)
 vim.keymap.set("n", "<Leader>qq", "<cmd>cn<CR>", opts)
 vim.keymap.set("n", "<Leader>qp", "<cmd>cp<CR>", opts)
 
