@@ -27,21 +27,6 @@ return {
             ]])
         end,
     },
-    -- lazy.nvim
-    {
-        "folke/noice.nvim",
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-        },
-        event = "VeryLazy",
-        opts = {
-            presets = {
-                command_palette = true, -- position the cmdline and popupmenu together
-                long_message_to_split = true,
-                lsp_doc_border = true,
-            },
-        },
-    },
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
