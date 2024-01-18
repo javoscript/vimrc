@@ -16,7 +16,7 @@ return {
         end,
     },
     { "aserowy/tmux.nvim", opts = {} },
-    { "folke/zen-mode.nvim", opts = {} },
+    { "folke/zen-mode.nvim", opts = { plugins = { tmux = { enabled = true } } } },
     {
         "vim-test/vim-test",
         config = function()
