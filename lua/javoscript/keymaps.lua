@@ -75,6 +75,7 @@ vim.keymap.set("n", "<Leader>os", "<cmd>ObsidianSearch<cr>", opts)
 vim.keymap.set("n", "<Leader>sc", "<cmd>Telescope colorscheme<CR>", opts)
 vim.keymap.set("n", "<Leader>sh", "<cmd>Telescope help_tags<CR>", opts)
 vim.keymap.set("n", "<Leader>sk", "<cmd>Telescope keymaps<CR>", opts)
+vim.keymap.set("n", "<Leader>sm", "<cmd>Telescope man_pages<CR>", opts)
 vim.keymap.set("n", "<Leader>sC", "<cmd>Telescope commands<CR>", opts)
 
 vim.keymap.set("n", "<Leader>ql", "<cmd>TodoQuickFix<CR>", opts)

@@ -5,6 +5,7 @@ return {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lsp-signature-help",
             {
                 "L3MON4D3/LuaSnip",
                 version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
@@ -35,6 +36,7 @@ return {
                     { name = "buffer" },
                     { name = "path" },
                     { name = "luasnip" },
+                    { name = "nvim_lsp_signature_help" },
                 },
                 formatting = {
                     fields = { "kind", "abbr", "menu" },

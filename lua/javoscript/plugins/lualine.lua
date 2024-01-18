@@ -1,5 +1,8 @@
 return {
     "nvim-lualine/lualine.nvim",
+    dependencies = {
+        "folke/noice.nvim",
+    },
     config = function()
         local hide_in_width = function()
             return vim.fn.winwidth(0) > 80
@@ -18,7 +21,7 @@ return {
         local diff = {
             "diff",
             colored = true,
-            symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+            symbols = { added = " ", modified = " ", removed = " " },
             cond = hide_in_width,
         }
 
@@ -65,7 +68,11 @@ return {
                 lualine_b = { branch, diff, diagnostics },
                 lualine_c = { { "filename", path = 1 } },
                 lualine_x = {
-                    -- diff,
+                    {
+                        require("noice").api.statusline.mode.get,
+                        cond = require("noice").api.statusline.mode.has,
+                        color = { fg = "#ff9e64" },
+                    },
                     spaces,
                     "encoding",
                     filetype,
