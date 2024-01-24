@@ -37,7 +37,9 @@ vim.keymap.set("n", "<Leader>c", "<cmd>bdelete!<CR>", opts)
 vim.keymap.set("n", "<Leader>C", "<cmd>:w <bar> %bd <bar> e# <bar> bd# <CR><CR>", opts)
 vim.keymap.set("n", "<Leader>w", "<cmd>w!<CR>", opts)
 
-vim.keymap.set("n", "<Leader>e", "<cmd>NvimTreeToggle<CR>", opts)
+-- vim.keymap.set("n", "<Leader>e", "<cmd>NvimTreeToggle<CR>", opts)
+vim.keymap.set("n", "<Leader>e", "<cmd>lua require('lir.float').toggle()<CR>", opts)
+vim.keymap.set("n", "<Leader>E", "<cmd>:e %:p:h<CR>", opts)
 
 vim.keymap.set("n", "<Leader>h", "<cmd>nohlsearch<CR>", opts) -- remove search highlight
 

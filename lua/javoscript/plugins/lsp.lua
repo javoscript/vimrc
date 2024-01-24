@@ -18,6 +18,7 @@ return {
                 phpactor = {},
                 volar = {},
                 tailwindcss = {},
+                tsserver = {},
             }
 
             require("mason").setup()
