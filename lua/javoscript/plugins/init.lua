@@ -9,10 +9,19 @@ return {
     { "folke/which-key.nvim", opts = {} },
     {
         "catppuccin/nvim",
+        -- lazy = false,
+        -- priority = 1000,
+        -- config = function()
+        --     vim.cmd([[colorscheme catppuccin-mocha]])
+        -- end,
+    },
+    {
+        "projekt0n/github-nvim-theme",
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd([[colorscheme catppuccin-mocha]])
+            require("github-theme").setup({})
+            vim.cmd("colorscheme github_dark_high_contrast")
         end,
     },
     { "aserowy/tmux.nvim", opts = {} },
