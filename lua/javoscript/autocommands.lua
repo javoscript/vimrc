@@ -1,3 +1,4 @@
+-- lsp autoformat
 vim.cmd([[
   augroup _lsp
     autocmd!
@@ -5,23 +6,7 @@ vim.cmd([[
   augroup end
 ]])
 
--- vim.api.nvim_create_autocmd({ "VimEnter" }, {
---     callback = function(data)
---         -- buffer is a real file on the disk
---         local real_file = vim.fn.filereadable(data.file) == 1
---
---         -- buffer is a [No Name]
---         local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
---
---         if not real_file and not no_name then
---             return
---         end
---
---         -- open the tree, find the file but don't focus it
---         require("nvim-tree.api").tree.toggle({ focus = false, find_file = true })
---     end,
--- })
-
+-- obsidian
 local au_obsidian = vim.api.nvim_create_augroup("obsidian", { clear = true })
 vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged" }, {
     group = au_obsidian,
@@ -31,3 +16,11 @@ vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged" }, {
         vim.opt.spell = true
     end,
 })
+
+-- dbui
+vim.cmd([[
+  autocmd FileType dbout setlocal nofoldenable
+  autocmd FileType dbout nmap <buffer> q gq
+  autocmd FileType dbui nmap <buffer> <C-j> <C-w>j
+  autocmd FileType dbui nmap <buffer> <C-k> <C-w>k
+]])

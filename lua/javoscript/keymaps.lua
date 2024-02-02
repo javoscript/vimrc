@@ -32,14 +32,15 @@ vim.keymap.set("n", "<Leader>an", "<cmd>tabnew<CR>", opts)
 vim.keymap.set("n", "<Leader>ac", "<cmd>tabclose<CR>", opts)
 vim.keymap.set("n", "<Leader>ao", "<cmd>tabonly<CR>", opts)
 
-vim.keymap.set("n", "<Leader>b", "<cmd>lua require('telescope.builtin').buffers({ sort_lastused = true })<cr>", opts)
-vim.keymap.set("n", "<Leader>c", "<cmd>bdelete!<CR>", opts)
+vim.keymap.set("n", "<Leader>b", "<cmd>lua require('telescope.builtin').buffers({ sort_mru = true })<cr>", opts)
+vim.keymap.set("n", "<Leader>c", "<cmd>bd<CR>", opts)
 vim.keymap.set("n", "<Leader>C", "<cmd>:w <bar> %bd <bar> e# <bar> bd# <CR><CR>", opts)
 vim.keymap.set("n", "<Leader>w", "<cmd>w!<CR>", opts)
 
 -- vim.keymap.set("n", "<Leader>e", "<cmd>NvimTreeToggle<CR>", opts)
 vim.keymap.set("n", "<Leader>e", "<cmd>lua require('lir.float').toggle()<CR>", opts)
-vim.keymap.set("n", "<Leader>E", "<cmd>:e %:p:h<CR>", opts)
+vim.keymap.set("n", "<Leader>-", "<cmd>:e %:p:h<CR>", opts)
+vim.keymap.set("n", "<Leader>E", "<cmd>:e.<CR>", opts)
 
 vim.keymap.set("n", "<Leader>h", "<cmd>nohlsearch<CR>", opts) -- remove search highlight
 
@@ -88,6 +89,8 @@ vim.keymap.set("n", "<Leader>ta", "<cmd>TestSuite<CR>", opts)
 vim.keymap.set("n", "<Leader>tf", "<cmd>TestFile<CR>", opts)
 vim.keymap.set("n", "<Leader>tn", "<cmd>TestNearest<CR>", opts)
 vim.keymap.set("n", "<Leader>tl", "<cmd>TestLast<CR>", opts)
+
+vim.keymap.set("n", "<Leader>dt", "<cmd>DBUIToggle<CR>", opts)
 
 vim.keymap.set("n", "<Leader>z", "<cmd>ZenMode<CR>", opts)
 

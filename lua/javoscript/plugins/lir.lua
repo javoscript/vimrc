@@ -5,6 +5,7 @@ return {
         local lir = require("lir")
         local actions = require("lir.actions")
         local clipboard_actions = require("lir.clipboard.actions")
+        local mark_actions = require("lir.mark.actions")
 
         lir.setup({
             hide_cursor = false,
@@ -26,6 +27,7 @@ return {
                 ["t"] = actions.tabedit,
                 ["s"] = actions.split,
                 ["v"] = actions.vsplit,
+                ["V"] = mark_actions.toggle_mark,
                 ["q"] = actions.quit,
                 ["y"] = actions.yank_path,
                 ["c"] = clipboard_actions.copy,
@@ -35,7 +37,7 @@ return {
             float = {
                 winblend = 0,
                 curdir_window = {
-                    enable = false,
+                    enable = true,
                     highlight_dirname = false,
                 },
             },
