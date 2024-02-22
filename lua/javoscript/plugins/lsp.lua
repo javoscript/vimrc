@@ -19,6 +19,23 @@ return {
                 volar = {},
                 tailwindcss = {},
                 tsserver = {},
+                emmet_ls = {
+                    filetypes = {
+                        "css",
+                        "eruby",
+                        "html",
+                        "javascript",
+                        "javascriptreact",
+                        "less",
+                        "sass",
+                        "scss",
+                        "svelte",
+                        "pug",
+                        "typescriptreact",
+                        "vue",
+                        "blade", -- for .blade.php files
+                    },
+                },
             }
 
             require("mason").setup()
