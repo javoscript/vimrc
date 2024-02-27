@@ -32,9 +32,17 @@ vim.keymap.set("n", "<Leader>an", "<cmd>tabnew<CR>", opts)
 vim.keymap.set("n", "<Leader>ac", "<cmd>tabclose<CR>", opts)
 vim.keymap.set("n", "<Leader>ao", "<cmd>tabonly<CR>", opts)
 
-vim.keymap.set("n", "<Leader>b", "<cmd>lua require('telescope.builtin').buffers({ sort_mru = true })<cr>", opts)
+vim.keymap.set(
+    "n",
+    "<Leader>b",
+    "<cmd>lua require('telescope.builtin').buffers({ sort_mru = true, ignore_current_buffer = true })<cr>",
+    opts
+)
+vim.keymap.set("n", "<S-h>", "<cmd>bprevious<CR>")
+vim.keymap.set("n", "<S-l>", "<cmd>bnext<CR>")
+
 vim.keymap.set("n", "<Leader>c", "<cmd>bd<CR>", opts)
-vim.keymap.set("n", "<Leader>C", "<cmd>:w <bar> %bd <bar> e# <bar> bd# <CR><CR>", opts)
+vim.keymap.set("n", "<Leader>C", "<cmd>:w <bar> %bd <bar> e# <bar> bd# <CR><CR>", opts) -- close all buffers except current one
 vim.keymap.set("n", "<Leader>w", "<cmd>w!<CR>", opts)
 
 -- vim.keymap.set("n", "<Leader>e", "<cmd>NvimTreeToggle<CR>", opts)
@@ -79,6 +87,7 @@ vim.keymap.set("n", "<Leader>sc", "<cmd>Telescope colorscheme<CR>", opts)
 vim.keymap.set("n", "<Leader>sh", "<cmd>Telescope help_tags<CR>", opts)
 vim.keymap.set("n", "<Leader>sk", "<cmd>Telescope keymaps<CR>", opts)
 vim.keymap.set("n", "<Leader>sm", "<cmd>Telescope man_pages<CR>", opts)
+vim.keymap.set("n", "<Leader>sq", "<cmd>Telescope quickfix<CR>", opts)
 vim.keymap.set("n", "<Leader>sC", "<cmd>Telescope commands<CR>", opts)
 
 vim.keymap.set("n", "<Leader>ql", "<cmd>TodoQuickFix<CR>", opts)
