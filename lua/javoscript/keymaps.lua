@@ -52,6 +52,10 @@ vim.keymap.set("n", "<Leader>E", "<cmd>:e.<CR>", opts)
 
 vim.keymap.set("n", "<Leader>h", "<cmd>nohlsearch<CR>", opts) -- remove search highlight
 
+vim.keymap.set("n", "<Leader>Hx", "<plug>RestNvim", opts)
+vim.keymap.set("n", "<Leader>Hp", "<plug>RestNvimPreview", opts)
+vim.keymap.set("n", "<Leader>Hl", "<plug>RestNvimLast", opts)
+
 vim.keymap.set("n", "<Leader> ", "<cmd>Telescope find_files<CR>", opts)
 vim.keymap.set("n", "<Leader>f", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
 vim.keymap.set("n", "<Leader>F", "<cmd>Telescope live_grep theme=ivy<CR>", opts)
