@@ -6,14 +6,16 @@ vim.cmd([[
   augroup end
 ]])
 
--- obsidian
-local au_obsidian = vim.api.nvim_create_augroup("obsidian", { clear = true })
+local au_markdown = vim.api.nvim_create_augroup("markdown", { clear = true })
 vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged" }, {
-    group = au_obsidian,
-    pattern = { vim.fn.expand("~") .. "/Notes/vault*" },
+    group = au_markdown,
+    pattern = { vim.fn.expand("~") .. "/notes*" },
     callback = function(_ev)
-        vim.api.nvim_win_set_option(0, "conceallevel", 1)
+        vim.api.nvim_win_set_option(0, "conceallevel", 0)
         vim.opt.spell = true
+        vim.opt.wrap = true
+        vim.opt.linebreak = true
+        vim.opt.colorcolumn = "80"
     end,
 })
 

@@ -82,11 +82,6 @@ vim.keymap.set("n", "<Leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<
 vim.keymap.set("n", "<Leader>lT", "<cmd>LspStop<cr>", opts)
 vim.keymap.set("n", "<Leader>lw", "<cmd>Telescope diagnostics<cr>", opts)
 
-vim.keymap.set("n", "<Leader>on", "<cmd>ObsidianNew<cr>", opts)
-vim.keymap.set("n", "<Leader>oo", "<cmd>ObsidianToday<cr>", opts)
-vim.keymap.set("n", "<Leader>os", "<cmd>ObsidianSearch<cr>", opts)
-vim.keymap.set("n", "<Leader>ot", ":lua require('obsidian').util.toggle_checkbox()<cr>", opts)
-
 vim.keymap.set("n", "<Leader>sc", "<cmd>Telescope colorscheme<CR>", opts)
 vim.keymap.set("n", "<Leader>sh", "<cmd>Telescope help_tags<CR>", opts)
 vim.keymap.set("n", "<Leader>sk", "<cmd>Telescope keymaps<CR>", opts)
