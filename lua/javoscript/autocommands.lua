@@ -1,4 +1,5 @@
 -- lsp autoformat
+-- TODO: check if needed with correct lsp/none_ls config
 vim.cmd([[
   augroup _lsp
     autocmd!

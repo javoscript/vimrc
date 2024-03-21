@@ -1,6 +1,10 @@
 return {
     "tamago324/lir.nvim",
-    dependencies = { "tamago324/lir-git-status.nvim" },
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "tamago324/lir-git-status.nvim",
+        "kyazdani42/nvim-web-devicons",
+    },
     config = function()
         local lir = require("lir")
         local actions = require("lir.actions")

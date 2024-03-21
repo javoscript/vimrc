@@ -48,5 +48,5 @@ vim.g.loaded_netrwPlugin = 1
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 
 vim.opt.shortmess:append("c")
-vim.opt.iskeyword:append("-")
+-- vim.opt.iskeyword:append("-")
 vim.opt.formatoptions:remove({ "c", "r", "o" })
