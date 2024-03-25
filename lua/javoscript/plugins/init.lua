@@ -7,23 +7,6 @@ return {
     "tpope/vim-surround",
     "mg979/vim-visual-multi",
     { "folke/which-key.nvim", opts = {} },
-    {
-        "catppuccin/nvim",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            vim.cmd([[colorscheme catppuccin-mocha]])
-        end,
-    },
-    {
-        "projekt0n/github-nvim-theme",
-        -- lazy = false,
-        -- priority = 1000,
-        -- config = function()
-        --     require("github-theme").setup({})
-        --     vim.cmd("colorscheme github_dark_high_contrast")
-        -- end,
-    },
     { "aserowy/tmux.nvim", opts = {} },
     { "folke/zen-mode.nvim", opts = { plugins = { tmux = { enabled = false } } } },
     {
