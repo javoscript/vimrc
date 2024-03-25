@@ -16,7 +16,7 @@ return {
             show_hidden_files = true,
             devicons = {
                 enable = true,
-                highlight_dirname = false,
+                highlight_dirname = true,
             },
             mappings = {
                 ["<CR>"] = actions.edit,

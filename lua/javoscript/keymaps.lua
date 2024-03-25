@@ -47,8 +47,10 @@ vim.keymap.set("n", "<Leader>w", "<cmd>w!<cr>", opts)
 
 -- vim.keymap.set("n", "<Leader>e", "<cmd>NvimTreeToggle<cr>", opts)
 vim.keymap.set("n", "<Leader>e", "<cmd>lua require('lir.float').toggle()<cr>", opts)
-vim.keymap.set("n", "<Leader>-", "<cmd>:e %:p:h<cr>", opts)
-vim.keymap.set("n", "<Leader>E", "<cmd>:e.<cr>", opts)
+-- vim.keymap.set("n", "<Leader>-", "<cmd>:e %:p:h<cr>", opts)
+-- vim.keymap.set("n", "<Leader>E", "<cmd>:e.<cr>", opts)
+vim.keymap.set("n", "<Leader>-", "<cmd>lua require('lir.float').toggle(vim.fn.expand('%:p:h'))<cr>", opts)
+vim.keymap.set("n", "<Leader>E", "<cmd>lua require('lir.float').init('.')<cr>", opts)
 
 vim.keymap.set("n", "<Leader>gg", "<cmd>Neogit<cr>", opts)
 vim.keymap.set("n", "<Leader>gc", "<cmd>Neogit commit<cr>", opts)

@@ -1,12 +1,23 @@
--- plugins/rest.lua
 return {
-    "rest-nvim/rest.nvim",
-    dependencies = { { "nvim-lua/plenary.nvim" } },
-    lazy = true,
-    ft = "http",
-    config = function()
-        require("rest-nvim").setup({
-            skip_ssl_verification = true,
-        })
-    end,
+    -- NOTE: removed for now - not working
+    --     {
+    --         "vhyrro/luarocks.nvim",
+    --         branch = "go-away-python",
+    --         priority = 1000,
+    --         config = true,
+    --         opts = {
+    --             rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }, -- Specify LuaRocks packages to install
+    --         },
+    --     },
+    --     {
+    --         "rest-nvim/rest.nvim",
+    --         lazy = true,
+    --         ft = "http",
+    --         dependencies = { "luarocks.nvim" },
+    --         config = function()
+    --             require("rest-nvim").setup({
+    --                 skip_ssl_verification = true,
+    --             })
+    --         end,
+    --     },
 }
