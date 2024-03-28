@@ -31,6 +31,9 @@ return {
                         require("luasnip").lsp_expand(args.body)
                     end,
                 },
+                experimental = {
+                    ghost_text = true,
+                },
                 sources = {
                     { name = "nvim_lsp" },
                     { name = "buffer" },
@@ -64,29 +67,9 @@ return {
                         i = cmp.mapping.abort(),
                         c = cmp.mapping.close(),
                     }),
-                    -- Accept currently selected item. If none selected, `select` first item.
                     -- Set `select` to `false` to only confirm explicitly selected items.
                     ["<CR>"] = cmp.mapping.confirm({ select = false }),
-                    -- ["<Tab>"] = cmp.mapping(function(fallback)
-                    --     if cmp.visible() then
-                    --         cmp.select_next_item()
-                    --     else
-                    --         fallback()
-                    --     end
-                    -- end, {
-                    --     "i",
-                    --     "s",
-                    -- }),
-                    -- ["<S-Tab>"] = cmp.mapping(function(fallback)
-                    --     if cmp.visible() then
-                    --         cmp.select_prev_item()
-                    --     else
-                    --         fallback()
-                    --     end
-                    -- end, {
-                    --     "i",
-                    --     "s",
-                    -- }),
+                    -- TODO: remove?
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
@@ -100,7 +83,7 @@ return {
                             fallback()
                         end
                     end, { "i", "s" }),
-
+                    -- TODO: remove?
                     ["<S-Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_prev_item()

@@ -33,10 +33,17 @@ return {
                 ["v"] = actions.vsplit,
                 ["V"] = mark_actions.toggle_mark,
                 ["q"] = actions.quit,
+                ["<esc>"] = actions.quit,
                 ["y"] = actions.yank_path,
                 ["c"] = clipboard_actions.copy,
                 ["x"] = clipboard_actions.cut,
                 ["p"] = clipboard_actions.paste,
+                ["<C-j>"] = function()
+                    vim.api.nvim_feedkeys("gj", "n", false)
+                end,
+                ["<C-k>"] = function()
+                    vim.api.nvim_feedkeys("gk", "n", false)
+                end,
             },
             float = {
                 winblend = 0,

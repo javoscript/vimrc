@@ -89,8 +89,18 @@ return {
                 lualine_y = {},
                 lualine_z = {},
             },
-            tabline = {},
+            tabline = {
+                lualine_a = {
+                    {
+                        "tabs",
+                        mode = 3,
+                        path = 1,
+                    },
+                },
+            },
             extensions = {},
         })
+
+        vim.opt.showtabline = 1 -- NOTE: workaround because it is being overriden by lualine
     end,
 }
