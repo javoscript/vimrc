@@ -1,12 +1,3 @@
--- lsp autoformat
--- TODO: check if needed with correct lsp/none_ls config
--- vim.cmd([[
---   augroup _lsp
---     autocmd!
---     autocmd BufWritePre * lua vim.lsp.buf.format({ async = false })
---   augroup end
--- ]])
-
 local au_markdown = vim.api.nvim_create_augroup("markdown", { clear = true })
 vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged" }, {
     group = au_markdown,

@@ -34,11 +34,9 @@ return {
                             lua = { "stylua" },
                             php = { "pint", "php_cs_fixer" },
                             markdown = { "injected", "markdownlint" },
-                            -- javascript = { "prettier", "rustywind", "eslint_d" },
-                            -- vue = { "prettier", "rustywind", "eslint_d" },
                             javascript = { "rustywind", "eslint_d" },
                             vue = { "rustywind", "eslint_d" },
-                            json = { "jq" },
+                            json = { "prettier" },
                             yaml = { "prettier" },
                             gleam = { "gleam" },
                             -- Conform can also run multiple formatters sequentially
@@ -109,29 +107,9 @@ return {
         end,
     },
     {
-        "gbprod/phpactor.nvim",
+        "phpactor/phpactor",
         lazy = true,
-        ft = { "php" },
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "neovim/nvim-lspconfig",
-        },
-        config = function()
-            require("phpactor").setup({
-                install = {
-                    -- path = vim.fn.stdpath("data") .. "/mason/packages/phpactor",
-                    branch = "master",
-                    bin = vim.fn.stdpath("data") .. "/mason/bin/phpactor",
-                    php_bin = "php",
-                    composer_bin = "composer",
-                    git_bin = "git",
-                    check_on_startup = "none",
-                },
-                lspconfig = {
-                    enabled = false, -- NOTE: being handled via mason
-                    options = {},
-                },
-            })
-        end,
+        ft = { "php", "blade" },
+        build = "composer install --no-dev -o",
     },
 }

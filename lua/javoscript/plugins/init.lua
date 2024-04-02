@@ -10,16 +10,6 @@ return {
     { "aserowy/tmux.nvim", opts = {} },
     { "folke/zen-mode.nvim", opts = { plugins = { tmux = { enabled = false } } } },
     {
-        "vim-test/vim-test",
-        config = function()
-            vim.cmd([[
-                let g:test#strategy = 'neovim'
-                let test#neovim#term_position = "vert"
-                let g:test#neovim#start_normal = 1
-            ]])
-        end,
-    },
-    {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {},
