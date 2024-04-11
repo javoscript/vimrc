@@ -9,7 +9,7 @@ return {
             ]])
 
         local au_vim_test = vim.api.nvim_create_augroup("vim_test", { clear = true })
-        vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged" }, {
+        vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged", "BufEnter" }, {
             group = au_vim_test,
             pattern = { vim.fn.expand("~") .. "/Development/cycle/subscription-api*" },
             callback = function(_ev)
