@@ -125,6 +125,8 @@ return {
                     })
                 end,
             })
+
+            require("lspconfig").gleam.setup({})
         end,
     },
     {
