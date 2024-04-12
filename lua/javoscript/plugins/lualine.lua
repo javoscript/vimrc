@@ -22,7 +22,7 @@ return {
             "diff",
             colored = true,
             symbols = { added = " ", modified = " ", removed = " " },
-            cond = hide_in_width,
+            -- cond = hide_in_width,
         }
 
         local mode = {
@@ -93,7 +93,7 @@ return {
                 lualine_a = {
                     {
                         "tabs",
-                        mode = 3,
+                        mode = 2,
                         path = 1,
                     },
                 },

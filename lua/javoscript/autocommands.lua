@@ -1,3 +1,11 @@
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+    desc = "Briefly highlight yanked text",
+    group = vim.api.nvim_create_augroup("yank", { clear = true }),
+})
+
 local au_markdown = vim.api.nvim_create_augroup("markdown", { clear = true })
 vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged" }, {
     group = au_markdown,
