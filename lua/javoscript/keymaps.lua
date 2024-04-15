@@ -27,6 +27,8 @@ vim.keymap.set("n", "<M-3>", "3gt", opts)
 vim.keymap.set("n", "<M-4>", "4gt", opts)
 vim.keymap.set("n", "<M-5>", "5gt", opts)
 
+vim.keymap.set("n", "<C-p>", "<C-^>", opts) -- alternative file (usually prev)
+
 -- Resize with arrows
 vim.keymap.set("n", "<C-Up>", ":resize -2<cr>", opts)
 vim.keymap.set("n", "<C-Down>", ":resize +2<cr>", opts)
@@ -75,11 +77,13 @@ vim.keymap.set("n", "<Leader> ", "<cmd>Telescope find_files<cr>", opts)
 vim.keymap.set("n", "<Leader>f", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
 vim.keymap.set("n", "<Leader>F", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
 
-vim.keymap.set("n", "gD", ":vsplit | lua vim.lsp.buf.definition()<CR>", opts)
-vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+-- vim.keymap.set("n", "gD", ":vsplit | lua vim.lsp.buf.definition()<CR>", opts)
+vim.keymap.set("n", "gD", "<cmd>lua require('telescope.builtin').lsp_definitions({ jump_type = 'vsplit' })<cr>", opts)
+-- vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+vim.keymap.set("n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", opts)
 vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
 vim.keymap.set("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+vim.keymap.set("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
 vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 
 vim.keymap.set("n", "<Leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
@@ -113,6 +117,8 @@ vim.keymap.set("n", "<Leader>ta", "<cmd>TestSuite<cr>", opts)
 vim.keymap.set("n", "<Leader>tf", "<cmd>TestFile<cr>", opts)
 vim.keymap.set("n", "<Leader>tn", "<cmd>TestNearest<cr>", opts)
 vim.keymap.set("n", "<Leader>tl", "<cmd>TestLast<cr>", opts)
+
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 vim.keymap.set("n", "<Leader>dt", "<cmd>DBUIToggle<cr>", opts)
 
