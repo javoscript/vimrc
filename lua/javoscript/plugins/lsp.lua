@@ -38,6 +38,8 @@ return {
                             php = { "pint", "php_cs_fixer" },
                             markdown = { "injected", "markdownlint" },
                             javascript = { "rustywind", "eslint_d" },
+                            typescript = { "eslint_d", "prettier" },
+                            html = { "rustywind", "prettier" },
                             vue = { "rustywind", "eslint_d" },
                             json = { "prettier" },
                             yaml = { "prettier" },
@@ -72,6 +74,11 @@ return {
             },
         },
         config = function()
+            local mason_registry = require("mason-registry")
+            local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
+                .. "/node_modules/@vue/language-server"
+            print(vue_language_server_path)
+
             local servers = {
                 lua_ls = {
                     Lua = {
@@ -81,26 +88,43 @@ return {
                 },
                 rust_analyzer = {},
                 phpactor = {},
-                volar = {},
                 tailwindcss = {},
-                tsserver = {},
-                emmet_ls = {
-                    filetypes = {
-                        "css",
-                        "eruby",
-                        "html",
-                        "javascript",
-                        "javascriptreact",
-                        "less",
-                        "sass",
-                        "scss",
-                        "svelte",
-                        "pug",
-                        "typescriptreact",
-                        "vue",
-                        "blade", -- for .blade.php files
+                tsserver = {
+                    init_options = {
+                        plugins = {
+                            {
+                                name = "@vue/typescript-plugin",
+                                location = vue_language_server_path,
+                                languages = {
+                                    "typescript",
+                                    "javascript",
+                                    "javascriptreact",
+                                    "typescriptreact",
+                                    "vue",
+                                },
+                            },
+                        },
                     },
+                    filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
                 },
+                volar = {},
+                -- emmet_ls = {
+                --     filetypes = {
+                --         "css",
+                --         "eruby",
+                --         "html",
+                --         "javascript",
+                --         "javascriptreact",
+                --         "less",
+                --         "sass",
+                --         "scss",
+                --         "svelte",
+                --         "pug",
+                --         "typescriptreact",
+                --         "vue",
+                --         "blade", -- for .blade.php files
+                --     },
+                -- },
             }
 
             require("mason").setup()

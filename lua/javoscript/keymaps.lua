@@ -61,7 +61,6 @@ vim.keymap.set("n", "<Leader>e", "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_n
 vim.keymap.set("n", "<Leader>E", "<cmd>lua MiniFiles.open(vim.uv.cwd(), false)<cr>", opts)
 
 vim.keymap.set("n", "<Leader>gb", "<cmd>Gitsigns blame_line<cr>", opts)
-vim.keymap.set("n", "<Leader>gc", "<cmd>Neogit commit<cr>", opts)
 vim.keymap.set("n", "<Leader>gC", "<cmd>DiffviewClose<cr>", opts)
 vim.keymap.set("n", "<Leader>gd", "<cmd>DiffviewOpen --selected-file<cr>", opts)
 vim.keymap.set("n", "<Leader>gg", "<cmd>Neogit<cr>", opts)
@@ -83,7 +82,8 @@ vim.keymap.set("n", "gD", "<cmd>lua require('telescope.builtin').lsp_definitions
 vim.keymap.set("n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", opts)
 vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
 vim.keymap.set("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-vim.keymap.set("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
+-- vim.keymap.set("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
+vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
 vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 
 vim.keymap.set("n", "<Leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
@@ -111,6 +111,7 @@ vim.keymap.set("n", "<Leader>sc", "<cmd>Telescope commands<cr>", opts)
 
 vim.keymap.set("n", "<Leader>ql", "<cmd>TodoQuickFix<cr>", opts)
 vim.keymap.set("n", "<Leader>qq", "<cmd>cn<cr>", opts)
+vim.keymap.set("n", "<Leader>qo", "<cmd>copen<cr>", opts)
 vim.keymap.set("n", "<Leader>qp", "<cmd>cp<cr>", opts)
 
 vim.keymap.set("n", "<Leader>ta", "<cmd>TestSuite<cr>", opts)
