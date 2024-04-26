@@ -38,6 +38,8 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize +2<cr>", opts)
 -- Leader keymaps
 vim.keymap.set("n", "<Leader>an", "<cmd>tabnew<cr>", opts)
 vim.keymap.set("n", "<Leader>ac", "<cmd>tabclose<cr>", opts)
+vim.keymap.set("n", "<Leader>ah", "<cmd>tabm -1<cr>", opts)
+vim.keymap.set("n", "<Leader>al", "<cmd>tabm +1<cr>", opts)
 vim.keymap.set("n", "<Leader>ao", "<cmd>tabonly<cr>", opts)
 
 vim.keymap.set(
@@ -53,10 +55,6 @@ vim.keymap.set("n", "<Leader>c", "<cmd>bd<cr>", opts)
 vim.keymap.set("n", "<Leader>C", "<cmd>:w <bar> %bd <bar> e# <bar> bd# <cr><cr>", opts) -- close all buffers except current one
 vim.keymap.set("n", "<Leader>w", "<cmd>w!<cr>", opts)
 
--- vim.keymap.set("n", "<Leader>e", "<cmd>lua require('lir.float').toggle()<cr>", opts)
--- vim.keymap.set("n", "<Leader>-", "<cmd>lua require('lir.float').toggle(vim.fn.expand('%:p:h'))<cr>", opts)
--- vim.keymap.set("n", "<Leader>E", "<cmd>lua require('lir.float').init('.')<cr>", opts)
-
 vim.keymap.set("n", "<Leader>e", "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0), false)<cr>", opts)
 vim.keymap.set("n", "<Leader>E", "<cmd>lua MiniFiles.open(vim.uv.cwd(), false)<cr>", opts)
 
@@ -66,7 +64,24 @@ vim.keymap.set("n", "<Leader>gd", "<cmd>DiffviewOpen --selected-file<cr>", opts)
 vim.keymap.set("n", "<Leader>gg", "<cmd>Neogit<cr>", opts)
 vim.keymap.set("n", "<Leader>gh", "<cmd>DiffviewFileHistory %<cr>", opts)
 
-vim.keymap.set("n", "<Leader>h", "<cmd>nohlsearch<cr>", opts) -- remove search highlight
+vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<cr>", {})
+
+vim.keymap.set("n", "<leader>hh", function()
+    local harpoon = require("harpoon")
+    harpoon.ui:toggle_quick_menu(harpoon:list())
+end)
+vim.keymap.set("n", "<leader>ha", function()
+    require("harpoon"):list():add()
+end)
+vim.keymap.set("n", "<leader>hn", function()
+    require("harpoon"):list():next()
+end)
+vim.keymap.set("n", "<leader>hp", function()
+    require("harpoon"):list():prev()
+end)
+vim.keymap.set("n", "<leader>hc", function()
+    require("harpoon"):list():clear()
+end)
 
 vim.keymap.set("n", "<Leader>Hx", "<plug>RestNvim", opts)
 vim.keymap.set("n", "<Leader>Hp", "<plug>RestNvimPreview", opts)
@@ -100,6 +115,8 @@ vim.keymap.set("n", "<Leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", opt
 vim.keymap.set("n", "<Leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", opts)
 vim.keymap.set("n", "<Leader>lT", "<cmd>LspStop<cr>", opts)
 vim.keymap.set("n", "<Leader>lw", "<cmd>Telescope diagnostics<cr>", opts)
+
+vim.keymap.set("n", "<Leader>oct", "<cmd>TSContextToggle<cr>", opts)
 
 vim.keymap.set("n", "<Leader>sC", "<cmd>Telescope colorscheme<cr>", opts)
 vim.keymap.set("n", "<Leader>sg", "<cmd>Telescope git_status<cr>", opts)

@@ -2,7 +2,11 @@ return {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
-        "nvim-treesitter/nvim-treesitter-context",
+        {
+            "nvim-treesitter/nvim-treesitter-context",
+            lazy = true,
+            opts = { enable = false },
+        },
         -- "JoosepAlviste/nvim-ts-context-commentstring"        -- TODO: check if needed
         -- "nvim-treesitter/nvim-treesitter-refactor"           -- TODO: check if usefull - has highlight definition, highlight context, smart rename, navigation
     },
