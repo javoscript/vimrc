@@ -8,7 +8,6 @@ return {
     "mg979/vim-visual-multi",
     { "folke/which-key.nvim", opts = {} },
     { "aserowy/tmux.nvim", opts = {} },
-    { "folke/zen-mode.nvim", opts = { plugins = { tmux = { enabled = false } } } },
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },

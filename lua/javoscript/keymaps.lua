@@ -83,6 +83,8 @@ vim.keymap.set("n", "<leader>hc", function()
     require("harpoon"):list():clear()
 end)
 
+vim.keymap.set("n", "<Leader>ybp", '<cmd>let @+ = expand("%")<cr>', opts)
+
 vim.keymap.set("n", "<Leader>Hx", "<plug>RestNvim", opts)
 vim.keymap.set("n", "<Leader>Hp", "<plug>RestNvimPreview", opts)
 vim.keymap.set("n", "<Leader>Hl", "<plug>RestNvimLast", opts)
@@ -116,7 +118,7 @@ vim.keymap.set("n", "<Leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<
 vim.keymap.set("n", "<Leader>lT", "<cmd>LspStop<cr>", opts)
 vim.keymap.set("n", "<Leader>lw", "<cmd>Telescope diagnostics<cr>", opts)
 
-vim.keymap.set("n", "<Leader>oct", "<cmd>TSContextToggle<cr>", opts)
+vim.keymap.set("n", "<Leader>oc", "<cmd>TSContextToggle<cr>", opts)
 
 vim.keymap.set("n", "<Leader>sC", "<cmd>Telescope colorscheme<cr>", opts)
 vim.keymap.set("n", "<Leader>sg", "<cmd>Telescope git_status<cr>", opts)

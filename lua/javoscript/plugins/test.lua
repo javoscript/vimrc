@@ -2,9 +2,11 @@ return {
     "vim-test/vim-test",
     config = function()
         vim.cmd([[
-                let g:test#strategy = 'neovim'
+                let g:test#strategy = 'basic'
+                " let g:test#strategy = 'neovim'
                 let test#neovim#term_position = "vert"
                 let g:test#neovim#start_normal = 1
+                let g:test#basic#start_normal = 1
                 let test#php#phpunit#executable = './vendor/bin/phpunit'
             ]])
 
@@ -15,7 +17,7 @@ return {
             callback = function(_ev)
                 vim.cmd([[
                     let test#php#phpunit#executable = "cd ~/Development/cycle/laradock-cycle && ~/Development/cycle/laradock-cycle/sails a test --configuration phpunit-gitlab-ci.xml --exclude external"
-                    " let test#php#phpunit#executable = "cd ~/Development/cycle/laradock-cycle && ~/Development/cycle/laradock-cycle/sails a test --configuration phpunit-gitlab-ci.xml --group toRunOnCi --exclude external"
+                    " let test#php#phpunit#executable = "cd ~/Development/cycle/laradock-cycle && ~/Development/cycle/laradock-cycle/sails a test --configuration phpunit.mysql.xml --exclude external"
                 ]])
             end,
         })
