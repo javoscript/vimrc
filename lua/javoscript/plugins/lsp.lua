@@ -35,7 +35,7 @@ return {
                         end,
                         formatters_by_ft = {
                             lua = { "stylua" },
-                            php = { "php_cs_fixer", "pint" },
+                            php = { "pint" }, --, "php_cs_fixer" -- should not be necessary as pint is a wrapper around php_cs_fixer
                             markdown = { "injected", "markdownlint" },
                             javascript = { "rustywind", "eslint_d" },
                             typescript = { "eslint_d", "prettier" },

@@ -64,8 +64,6 @@ vim.keymap.set("n", "<Leader>gd", "<cmd>DiffviewOpen --selected-file<cr>", opts)
 vim.keymap.set("n", "<Leader>gg", "<cmd>Neogit<cr>", opts)
 vim.keymap.set("n", "<Leader>gh", "<cmd>DiffviewFileHistory %<cr>", opts)
 
-vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<cr>", {})
-
 vim.keymap.set("n", "<leader>hh", function()
     local harpoon = require("harpoon")
     harpoon.ui:toggle_quick_menu(harpoon:list())
@@ -119,6 +117,7 @@ vim.keymap.set("n", "<Leader>lT", "<cmd>LspStop<cr>", opts)
 vim.keymap.set("n", "<Leader>lw", "<cmd>Telescope diagnostics<cr>", opts)
 
 vim.keymap.set("n", "<Leader>oc", "<cmd>TSContextToggle<cr>", opts)
+vim.keymap.set("n", "<Leader>oh", "<cmd>nohlsearch<cr>", opts)
 
 vim.keymap.set("n", "<Leader>sC", "<cmd>Telescope colorscheme<cr>", opts)
 vim.keymap.set("n", "<Leader>sg", "<cmd>Telescope git_status<cr>", opts)
