@@ -10,8 +10,8 @@ return {
         init = function()
             vim.g.VM_default_mappings = 0
             vim.g.VM_maps = {
-                ["Find Under"] = "<C-m>",
-                ["Find Subword Under"] = "<C-m>",
+                ["Find Under"] = "<C-a>",
+                ["Find Subword Under"] = "<C-a>",
             }
         end,
     },
