@@ -64,6 +64,10 @@ vim.keymap.set("n", "<Leader>gd", "<cmd>DiffviewOpen --selected-file<cr>", opts)
 vim.keymap.set("n", "<Leader>gg", "<cmd>Neogit<cr>", opts)
 vim.keymap.set("n", "<Leader>gh", "<cmd>DiffviewFileHistory %<cr>", opts)
 
+vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
+vim.keymap.set({ "n", "x", "o" }, "S", "<Plug>(leap-backward)")
+vim.keymap.set({ "n", "x", "o" }, "gs", "<Plug>(leap-from-window)")
+
 vim.keymap.set("n", "<leader>hh", function()
     local harpoon = require("harpoon")
     harpoon.ui:toggle_quick_menu(harpoon:list())

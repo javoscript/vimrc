@@ -76,7 +76,7 @@ return {
             end,
         },
     },
-    config = {
+    opts = {
         graph_style = "unicode",
         sections = {
             recent = {

@@ -2,8 +2,8 @@ return {
     "vim-test/vim-test",
     config = function()
         vim.cmd([[
-                let g:test#strategy = 'basic'
-                " let g:test#strategy = 'neovim'
+                " let g:test#strategy = 'basic'
+                let g:test#strategy = 'neovim'
                 let test#neovim#term_position = "vert"
                 let g:test#neovim#start_normal = 1
                 let g:test#basic#start_normal = 1

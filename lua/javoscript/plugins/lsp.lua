@@ -38,8 +38,8 @@ return {
                             php = { "php_cs_fixer", "pint" },
                             markdown = { "injected", "markdownlint" },
                             javascript = { "rustywind", "eslint_d" },
-                            typescript = { "eslint_d", "prettier" },
-                            html = { "rustywind", "prettier" },
+                            typescript = { "rustywind", "eslint_d" },
+                            html = { "rustywind", "prettier" }, -- eslint?
                             vue = { "rustywind", "eslint_d" },
                             json = { "prettier" },
                             yaml = { "prettier" },
@@ -77,7 +77,6 @@ return {
             local mason_registry = require("mason-registry")
             local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
                 .. "/node_modules/@vue/language-server"
-            print(vue_language_server_path)
 
             local servers = {
                 lua_ls = {

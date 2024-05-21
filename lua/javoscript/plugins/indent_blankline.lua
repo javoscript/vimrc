@@ -1,6 +1,7 @@
 return {
     "lukas-reineke/indent-blankline.nvim",
-    config = function ()
+    main = "ibl",
+    config = function()
         require("ibl").setup({
             exclude = {
                 filetypes = {
@@ -18,5 +19,5 @@ return {
                 },
             },
         })
-    end
+    end,
 }

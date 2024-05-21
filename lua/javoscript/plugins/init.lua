@@ -1,8 +1,7 @@
 return {
     "nvim-lua/plenary.nvim",
-    "nvim-lua/popup.nvim", -- TODO: check if needed
+    -- "nvim-lua/popup.nvim", -- TODO: check if needed
     "editorconfig/editorconfig-vim",
-    -- "tpope/vim-fugitive",                -- TODO
     { "numToStr/Comment.nvim", opts = {} },
     "tpope/vim-surround",
     {
@@ -25,9 +24,6 @@ return {
     {
         "ggandor/leap.nvim",
         dependencies = { "tpope/vim-repeat" },
-        config = function()
-            require("leap").create_default_mappings()
-        end,
     },
     {
         "iamcco/markdown-preview.nvim",
