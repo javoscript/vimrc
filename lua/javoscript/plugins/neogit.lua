@@ -3,6 +3,7 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope.nvim",
+        "nvim-lua/popup.nvim", -- TODO: check if needed
         {
             "sindrets/diffview.nvim",
             config = function()
@@ -77,6 +78,10 @@ return {
         },
     },
     opts = {
+        disable_hint = true,
+        commit_editor = {
+            kind = "auto",
+        },
         graph_style = "unicode",
         sections = {
             recent = {

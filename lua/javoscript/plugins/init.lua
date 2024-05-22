@@ -1,6 +1,5 @@
 return {
     "nvim-lua/plenary.nvim",
-    -- "nvim-lua/popup.nvim", -- TODO: check if needed
     "editorconfig/editorconfig-vim",
     { "numToStr/Comment.nvim", opts = {} },
     "tpope/vim-surround",
