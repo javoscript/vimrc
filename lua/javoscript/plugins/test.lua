@@ -16,8 +16,7 @@ return {
             pattern = { vim.fn.expand("~") .. "/Development/cycle/subscription-api*" },
             callback = function(_ev)
                 vim.cmd([[
-                    let test#php#phpunit#executable = "cd ~/Development/cycle/laradock-cycle && ~/Development/cycle/laradock-cycle/sails a test --configuration phpunit-gitlab-ci.xml --exclude external"
-                    " let test#php#phpunit#executable = "cd ~/Development/cycle/laradock-cycle && ~/Development/cycle/laradock-cycle/sails a test --configuration phpunit.mysql.xml --exclude external"
+                    let test#php#phpunit#executable = "php artisan test --configuration phpunit-gitlab-ci.xml --exclude external"
                 ]])
             end,
         })

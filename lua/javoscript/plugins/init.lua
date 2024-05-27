@@ -13,15 +13,15 @@ return {
             }
         end,
     },
-    { "folke/which-key.nvim", opts = {} },
-    { "aserowy/tmux.nvim", opts = {} },
+    { "folke/which-key.nvim",  opts = {} },
+    { "aserowy/tmux.nvim",     opts = {} },
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {},
     },
     {
-        "ggandor/leap.nvim",
+        "ggandor/leap.nvim", -- TODO: analyze folke/flash.nvim
         dependencies = { "tpope/vim-repeat" },
     },
     {

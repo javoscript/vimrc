@@ -58,7 +58,6 @@ return {
                     ["<C-x>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
                     ["<C-y>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }), -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
                     ["<C-e>"] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
-                    ["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false }), -- Set `select` to `false` to only confirm explicitly selected items.
                 },
             })
 
