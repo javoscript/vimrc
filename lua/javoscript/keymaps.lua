@@ -87,9 +87,17 @@ end)
 
 vim.keymap.set("n", "<Leader>ybp", '<cmd>let @+ = expand("%")<cr>', opts)
 
-vim.keymap.set("n", "<Leader>Hx", "<plug>RestNvim", opts)
-vim.keymap.set("n", "<Leader>Hp", "<plug>RestNvimPreview", opts)
-vim.keymap.set("n", "<Leader>Hl", "<plug>RestNvimLast", opts)
+vim.keymap.set("n", "<Leader>Hx", "<cmd>Rest run<cr>", opts)
+vim.keymap.set("n", "<Leader>Hl", "<cmd>Rest run last<cr>", opts)
+
+vim.keymap.set("n", "<Leader>jq", "<cmd>tab terminal pbpaste | ijq<cr>", opts)
+
+vim.keymap.set("v", "<Leader>jq",
+    -- yank to the "j" register
+    -- write to tmp file
+    -- and open a terminal in a new tab with the ijq process
+    '"jy <cmd>call writefile(getreg("j", 1, 1), "/tmp/nvim-ijq.txt")<cr> <bar> <cmd>tab terminal ijq /tmp/nvim-ijq.txt<cr>',
+    opts)
 
 vim.keymap.set("n", "<Leader> ", "<cmd>Telescope find_files<cr>", opts)
 vim.keymap.set("n", "<Leader>f", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
@@ -164,6 +172,7 @@ vim.keymap.set("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 vim.keymap.set("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 vim.keymap.set("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 vim.keymap.set("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+vim.keymap.set("t", "<C-q>", "<C-\\><C-n>", term_opts)
 
 vim.keymap.set("c", "<C-j>", "<C-n>")
 vim.keymap.set("c", "<C-k>", "<C-p>")

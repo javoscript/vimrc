@@ -1,21 +1,22 @@
 return {
-    -- {
-    --     "vhyrro/luarocks.nvim",
-    --     name = "luarocks",
-    --     priority = 1000,
-    --     opts = {
-    --         rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" },
-    --     },
-    -- },
-    -- {
-    --     "rest-nvim/rest.nvim",
-    --     lazy = true,
-    --     ft = "http",
-    --     dependencies = { "luarocks" },
-    --     config = function()
-    --         require("rest-nvim").setup({
-    --             skip_ssl_verification = true,
-    --         })
-    --     end,
-    -- },
+    {
+        "vhyrro/luarocks.nvim",
+        dependencies = {
+            { "nvim-neotest/nvim-nio" }
+        },
+        branch = "go-away-python",
+        opts = {
+            rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }
+        }
+    },
+    {
+        "rest-nvim/rest.nvim",
+        ft = "http",
+        dependencies = { "luarocks.nvim" },
+        config = function()
+            require("rest-nvim").setup({
+                skip_ssl_verification = true, -- needed for local development tests without https
+            })
+        end,
+    }
 }
