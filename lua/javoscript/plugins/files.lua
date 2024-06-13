@@ -8,10 +8,10 @@ return {
         config = function()
             require("mini.files").setup({
                 mappings = {
-                    go_in = "<CR>",
-                    go_in_plus = "L",
-                    go_out = "",
-                    go_out_plus = "H",
+                    go_in = "L",
+                    go_in_plus = "l",
+                    go_out = "H",
+                    go_out_plus = "h",
                     synchronize = '<Leader>w',
                 },
                 windows = {

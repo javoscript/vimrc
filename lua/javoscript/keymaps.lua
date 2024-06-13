@@ -51,7 +51,7 @@ vim.keymap.set(
 vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>")
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>")
 
-vim.keymap.set("n", "<Leader>c", "<cmd>bd<cr>", opts)
+vim.keymap.set("n", "<Leader>c", "<cmd>bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 vim.keymap.set("n", "<Leader>C", "<cmd>:w <bar> %bd <bar> e# <bar> bd# <cr><cr>", opts) -- close all buffers except current one
 vim.keymap.set("n", "<Leader>w", "<cmd>w!<cr>", opts)
 
@@ -59,6 +59,10 @@ vim.keymap.set("n", "<Leader>e", "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_n
 vim.keymap.set("n", "<Leader>E", "<cmd>lua MiniFiles.open(vim.uv.cwd(), false)<cr>", opts)
 
 vim.keymap.set("n", "<Leader>gb", "<cmd>Gitsigns blame_line<cr>", opts)
+vim.keymap.set("n", "<Leader>gw", "<cmd>Gitsigns preview_hunk<cr>", opts)
+vim.keymap.set("n", "<Leader>gn", "<cmd>Gitsigns next_hunk<cr>", opts)
+vim.keymap.set("n", "<Leader>gp", "<cmd>Gitsigns prev_hunk<cr>", opts)
+vim.keymap.set("n", "<Leader>gu", "<cmd>Gitsigns reset_hunk<cr>", opts)
 vim.keymap.set("n", "<Leader>gC", "<cmd>DiffviewClose<cr>", opts)
 vim.keymap.set("n", "<Leader>gd", "<cmd>DiffviewOpen --selected-file<cr>", opts)
 vim.keymap.set("n", "<Leader>gg", "<cmd>Neogit<cr>", opts)
@@ -89,6 +93,7 @@ vim.keymap.set("n", "<Leader>ybp", '<cmd>let @+ = expand("%")<cr>', opts)
 
 vim.keymap.set("n", "<Leader>Hx", "<cmd>Rest run<cr>", opts)
 vim.keymap.set("n", "<Leader>Hl", "<cmd>Rest run last<cr>", opts)
+vim.keymap.set("n", "<Leader>He", "<cmd>Telescope rest select_env<cr>", opts)
 
 vim.keymap.set("n", "<Leader>jq", "<cmd>tab terminal pbpaste | ijq<cr>", opts)
 
@@ -126,6 +131,7 @@ vim.keymap.set("n", "<Leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 vim.keymap.set("n", "<Leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", opts)
 vim.keymap.set("n", "<Leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", opts)
 vim.keymap.set("n", "<Leader>lT", "<cmd>LspStop<cr>", opts)
+vim.keymap.set("n", "<Leader>lR", "<cmd>LspRestart<cr>", opts)
 vim.keymap.set("n", "<Leader>lw", "<cmd>Telescope diagnostics<cr>", opts)
 
 vim.keymap.set("n", "<Leader>oc", "<cmd>TSContextToggle<cr>", opts)

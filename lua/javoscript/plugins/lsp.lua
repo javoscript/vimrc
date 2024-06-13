@@ -86,7 +86,15 @@ return {
                     },
                 },
                 rust_analyzer = {},
-                phpactor = {},
+                phpactor = { -- FIX: not working
+                    capabilities = {
+                        hoverProvider = false,
+                        textDocument = {
+                            hover = {}
+                        }
+                    }
+                },
+                intelephense = {},
                 tailwindcss = {},
                 tsserver = {
                     init_options = {
@@ -129,25 +137,42 @@ return {
             require("mason").setup()
             require("mason-lspconfig").setup()
 
+
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities.textDocument.completion.completionItem.snippetSupport = true
-            capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+            capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-            local mason_lspconfig = require("mason-lspconfig")
+            -- local mason_lspconfig = require("mason-lspconfig")
+            --
+            -- mason_lspconfig.setup({
+            --     ensure_installed = vim.tbl_keys(servers),
+            --     automatic_installation = true,
+            -- })
+            --
+            -- mason_lspconfig.setup_handlers({
+            --     function(server_name)
+            --         require("lspconfig")[server_name].setup({
+            --             settings = servers[server_name],
+            --             filetypes = (servers[server_name] or {}).filetypes,
+            --         })
+            --     end,
+            -- })
 
-            mason_lspconfig.setup({
-                ensure_installed = vim.tbl_keys(servers),
-                automatic_installation = true,
-            })
+            require('mason-lspconfig').setup {
+                handlers = {
+                    function(server_name)
+                        local server = servers[server_name] or {}
 
-            mason_lspconfig.setup_handlers({
-                function(server_name)
-                    require("lspconfig")[server_name].setup({
-                        settings = servers[server_name],
-                        filetypes = (servers[server_name] or {}).filetypes,
-                    })
-                end,
-            })
+                        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+
+                        -- if server_name == "phpactor" then
+                        --     server.capabilities.hoverProvider = false
+                        --     server.capabilities.textDocument.hover = nil
+                        -- end
+                        require('lspconfig')[server_name].setup(server)
+                    end,
+                },
+            }
 
             require("lspconfig").gleam.setup({})
         end,

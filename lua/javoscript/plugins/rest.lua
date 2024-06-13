@@ -12,11 +12,16 @@ return {
     {
         "rest-nvim/rest.nvim",
         ft = "http",
-        dependencies = { "luarocks.nvim" },
+        dependencies = {
+            "luarocks.nvim",
+            "nvim-telescope/telescope.nvim",
+        },
         config = function()
             require("rest-nvim").setup({
                 skip_ssl_verification = true, -- needed for local development tests without https
             })
+
+            require("telescope").load_extension("rest")
         end,
     }
 }
