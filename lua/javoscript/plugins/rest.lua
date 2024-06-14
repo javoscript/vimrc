@@ -18,6 +18,7 @@ return {
         },
         config = function()
             require("rest-nvim").setup({
+                encode_url = false,
                 skip_ssl_verification = true, -- needed for local development tests without https
             })
 

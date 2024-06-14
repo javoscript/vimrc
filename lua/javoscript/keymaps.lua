@@ -51,7 +51,8 @@ vim.keymap.set(
 vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>")
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>")
 
-vim.keymap.set("n", "<Leader>c", "<cmd>bp<bar>sp<bar>bn<bar>bd<CR>", opts)
+-- vim.keymap.set("n", "<Leader>c", "<cmd>bp<bar>sp<bar>bn<bar>bd<CR>", opts)
+vim.keymap.set("n", "<Leader>c", "<cmd>bd<CR>", opts)
 vim.keymap.set("n", "<Leader>C", "<cmd>:w <bar> %bd <bar> e# <bar> bd# <cr><cr>", opts) -- close all buffers except current one
 vim.keymap.set("n", "<Leader>w", "<cmd>w!<cr>", opts)
 
@@ -155,6 +156,8 @@ vim.keymap.set("n", "<Leader>ta", "<cmd>TestSuite<cr>", opts)
 vim.keymap.set("n", "<Leader>tf", "<cmd>TestFile<cr>", opts)
 vim.keymap.set("n", "<Leader>tn", "<cmd>TestNearest<cr>", opts)
 vim.keymap.set("n", "<Leader>tl", "<cmd>TestLast<cr>", opts)
+
+vim.keymap.set("n", "<Leader>tT", "<cmd>tab term<cr>", opts)
 
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
