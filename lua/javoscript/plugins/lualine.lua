@@ -68,7 +68,6 @@ return {
                         cond = require("noice").api.statusline.mode.has,
                         color = { fg = "#ff9e64" },
                     },
-                    "rest",
                     spaces,
                     "encoding",
                     filetype,

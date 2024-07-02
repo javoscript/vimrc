@@ -92,9 +92,9 @@ end)
 
 vim.keymap.set("n", "<Leader>ybp", '<cmd>let @+ = expand("%")<cr>', opts)
 
-vim.keymap.set("n", "<Leader>Hx", "<cmd>Rest run<cr>", opts)
-vim.keymap.set("n", "<Leader>Hl", "<cmd>Rest run last<cr>", opts)
-vim.keymap.set("n", "<Leader>He", "<cmd>Telescope rest select_env<cr>", opts)
+-- vim.keymap.set("n", "<Leader>Hx", "<cmd>Rest run<cr>", opts)
+-- vim.keymap.set("n", "<Leader>Hl", "<cmd>Rest run last<cr>", opts)
+-- vim.keymap.set("n", "<Leader>He", "<cmd>Telescope rest select_env<cr>", opts)
 
 vim.keymap.set("n", "<Leader>jq", "<cmd>tab terminal pbpaste | ijq<cr>", opts)
 
