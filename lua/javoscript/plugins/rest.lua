@@ -1,28 +1,36 @@
 return {
-    --     {
-    --         "vhyrro/luarocks.nvim",
-    --         dependencies = {
-    --             { "nvim-neotest/nvim-nio" }
-    --         },
-    --         branch = "go-away-python",
-    --         opts = {
-    --             rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }
-    --         }
-    --     },
-    --     {
-    --         "rest-nvim/rest.nvim",
-    --         ft = "http",
-    --         dependencies = {
-    --             "luarocks.nvim",
-    --             "nvim-telescope/telescope.nvim",
-    --         },
-    --         config = function()
-    --             require("rest-nvim").setup({
-    --                 encode_url = false,
-    --                 skip_ssl_verification = true, -- needed for local development tests without https
-    --             })
-    --
-    --             require("telescope").load_extension("rest")
-    --         end,
-    --     }
+    {
+        "jellydn/hurl.nvim",
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter"
+        },
+        ft = "hurl",
+        opts = {
+            debug = false,
+            show_notification = false,
+            mode = "split",
+            formatters = {
+                json = { 'jq' },
+                html = {
+                    'prettier', -- Make sure you have install prettier in your system, e.g: npm install -g prettier
+                    '--parser',
+                    'html',
+                },
+            },
+        },
+        keys = {
+            -- Run API request
+            { "<leader>ii", "<cmd>HurlRunnerAt<CR>",         desc = "Run Api request" },
+            { "<leader>il", "<cmd>HurlShowLastResponse<CR>", desc = "Run last response" },
+            { "<leader>ie", "<cmd>HurlManageVariable<CR>",   desc = "Run last response" },
+            { "<leader>iI", "<cmd>HurlRunner<CR>",           desc = "Run All requests" },
+            { "<leader>it", "<cmd>HurlRunnerToEntry<CR>",    desc = "Run Api request to entry" },
+            { "<leader>im", "<cmd>HurlToggleMode<CR>",       desc = "Hurl Toggle Mode" },
+            { "<leader>iv", "<cmd>HurlVerbose<CR>",          desc = "Run Api in verbose mode" },
+            -- Run Hurl request in visual mode
+            { "<leader>ii", ":HurlRunner<CR>",               desc = "Hurl Runner",             mode = "v" },
+        },
+    }
 }

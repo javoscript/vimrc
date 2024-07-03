@@ -90,25 +90,26 @@ vim.keymap.set("n", "<leader>hc", function()
     require("harpoon"):list():clear()
 end)
 
+-- utils
 vim.keymap.set("n", "<Leader>ybp", '<cmd>let @+ = expand("%")<cr>', opts)
-
--- vim.keymap.set("n", "<Leader>Hx", "<cmd>Rest run<cr>", opts)
--- vim.keymap.set("n", "<Leader>Hl", "<cmd>Rest run last<cr>", opts)
--- vim.keymap.set("n", "<Leader>He", "<cmd>Telescope rest select_env<cr>", opts)
-
 vim.keymap.set("n", "<Leader>jq", "<cmd>tab terminal pbpaste | ijq<cr>", opts)
-
 vim.keymap.set("v", "<Leader>jq",
     -- yank to the "j" register
     -- write to tmp file
     -- and open a terminal in a new tab with the ijq process
     '"jy <cmd>call writefile(getreg("j", 1, 1), "/tmp/nvim-ijq.txt")<cr> <bar> <cmd>tab terminal ijq /tmp/nvim-ijq.txt<cr>',
     opts)
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+vim.keymap.set("n", "<Leader>dt", "<cmd>DBUIToggle<cr>", opts)
+vim.keymap.set("n", "<Leader>z", "<cmd>ZenMode<cr>", opts)
+vim.keymap.set("n", "<c-w>z", "<cmd>lua require('zen-mode').toggle({window={width=1.0}})<cr>", opts)
 
+-- telescope
 vim.keymap.set("n", "<Leader> ", "<cmd>Telescope find_files<cr>", opts)
 vim.keymap.set("n", "<Leader>f", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
 vim.keymap.set("n", "<Leader>F", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
 
+-- lsp
 -- vim.keymap.set("n", "gD", ":vsplit | lua vim.lsp.buf.definition()<CR>", opts)
 vim.keymap.set("n", "gD", "<cmd>lua require('telescope.builtin').lsp_definitions({ jump_type = 'vsplit' })<cr>", opts)
 -- vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
@@ -135,9 +136,11 @@ vim.keymap.set("n", "<Leader>lT", "<cmd>LspStop<cr>", opts)
 vim.keymap.set("n", "<Leader>lR", "<cmd>LspRestart<cr>", opts)
 vim.keymap.set("n", "<Leader>lw", "<cmd>Telescope diagnostics<cr>", opts)
 
+-- opts
 vim.keymap.set("n", "<Leader>oc", "<cmd>TSContextToggle<cr>", opts)
 vim.keymap.set("n", "<Leader>oh", "<cmd>nohlsearch<cr>", opts)
 
+-- telescope
 vim.keymap.set("n", "<Leader>sC", "<cmd>Telescope colorscheme<cr>", opts)
 vim.keymap.set("n", "<Leader>sc", "<cmd>Telescope commands<cr>", opts)
 vim.keymap.set("n", "<Leader>sg", "<cmd>Telescope git_status<cr>", opts)
@@ -147,24 +150,20 @@ vim.keymap.set("n", "<Leader>sm", "<cmd>Telescope man_pages<cr>", opts)
 vim.keymap.set("n", "<Leader>sq", "<cmd>Telescope quickfix<cr>", opts)
 vim.keymap.set("n", "<Leader>sr", "<cmd>Telescope registers<cr>", opts)
 
+-- quickfix list
 vim.keymap.set("n", "<Leader>ql", "<cmd>TodoQuickFix<cr>", opts)
 vim.keymap.set("n", "<Leader>qq", "<cmd>cn<cr>", opts)
 vim.keymap.set("n", "<Leader>qo", "<cmd>copen<cr>", opts)
 vim.keymap.set("n", "<Leader>qp", "<cmd>cp<cr>", opts)
 
+-- tests
 vim.keymap.set("n", "<Leader>ta", "<cmd>TestSuite<cr>", opts)
 vim.keymap.set("n", "<Leader>tf", "<cmd>TestFile<cr>", opts)
 vim.keymap.set("n", "<Leader>tn", "<cmd>TestNearest<cr>", opts)
 vim.keymap.set("n", "<Leader>tl", "<cmd>TestLast<cr>", opts)
 
+-- terminal
 vim.keymap.set("n", "<Leader>tT", "<cmd>tab term<cr>", opts)
-
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-
-vim.keymap.set("n", "<Leader>dt", "<cmd>DBUIToggle<cr>", opts)
-
-vim.keymap.set("n", "<Leader>z", "<cmd>ZenMode<cr>", opts)
-vim.keymap.set("n", "<c-w>z", "<cmd>lua require('zen-mode').toggle({window={width=1.0}})<cr>", opts)
 
 -- Stay in visual mode when indenting
 vim.keymap.set("v", "<", "<gv", opts)
@@ -177,11 +176,13 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv")
 -- Replace without yanking
 vim.keymap.set("v", "p", '"_dP', opts)
 
+-- better split navigation in term mode
 vim.keymap.set("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 vim.keymap.set("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 vim.keymap.set("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 vim.keymap.set("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 vim.keymap.set("t", "<C-q>", "<C-\\><C-n>", term_opts)
 
+-- better option selection in option lists
 vim.keymap.set("c", "<C-j>", "<C-n>")
 vim.keymap.set("c", "<C-k>", "<C-p>")
