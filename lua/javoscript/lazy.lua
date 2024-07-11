@@ -14,9 +14,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    { import = "javoscript.plugins" },
+    {
+        import = "javoscript.plugins",
+    }
 }, {
     change_detection = {
         notify = false,
+    },
+    -- local version will be loaded when the plugin schema has `dev = true`
+    dev = {
+        path = '~/Development/javoscript/nvim-plugins',
+        fallback = false,
     },
 })

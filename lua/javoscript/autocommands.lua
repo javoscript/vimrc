@@ -7,15 +7,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 local au_markdown = vim.api.nvim_create_augroup("markdown", { clear = true })
-vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged" }, {
+vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged", "BufEnter" }, {
     group = au_markdown,
-    pattern = { vim.fn.expand("~") .. "/notes*" },
+    pattern = { vim.fn.expand("~") .. "/Notes*" },
     callback = function(_ev)
-        vim.api.nvim_win_set_option(0, "conceallevel", 0)
+        vim.api.nvim_win_set_option(0, "conceallevel", 2)
         vim.opt.spell = true
-        vim.opt.wrap = true
-        vim.opt.linebreak = true
-        vim.opt.colorcolumn = "80"
+        -- vim.opt.wrap = true
+        -- vim.opt.linebreak = true
+        -- vim.opt.colorcolumn = "80"
     end,
 })
 

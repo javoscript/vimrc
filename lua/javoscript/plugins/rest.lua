@@ -1,6 +1,7 @@
 return {
     {
         "jellydn/hurl.nvim",
+        -- dev = true,
         dependencies = {
             "MunifTanjim/nui.nvim",
             "nvim-lua/plenary.nvim",
@@ -17,6 +18,12 @@ return {
                     'prettier', -- Make sure you have install prettier in your system, e.g: npm install -g prettier
                     '--parser',
                     'html',
+                },
+                xml = {
+                    'tidy',
+                    '-xml',
+                    '-i',
+                    '-q',
                 },
             },
         },
