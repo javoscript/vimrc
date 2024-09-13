@@ -37,9 +37,9 @@ return {
                             lua = { "stylua" },
                             php = { "php_cs_fixer", "pint" },
                             markdown = { "injected", "markdownlint" },
+                            html = { "rustywind", "prettier" }, -- eslint?
                             javascript = { "rustywind", "eslint_d" },
                             typescript = { "rustywind", "eslint_d" },
-                            html = { "rustywind", "prettier" }, -- eslint?
                             vue = { "rustywind", "eslint_d" },
                             json = { "prettier" },
                             yaml = { "prettier" },
@@ -96,7 +96,7 @@ return {
                 },
                 intelephense = {},
                 tailwindcss = {},
-                tsserver = {
+                ts_ls = {
                     init_options = {
                         plugins = {
                             {
@@ -165,10 +165,6 @@ return {
 
                         server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
 
-                        -- if server_name == "phpactor" then
-                        --     server.capabilities.hoverProvider = false
-                        --     server.capabilities.textDocument.hover = nil
-                        -- end
                         require('lspconfig')[server_name].setup(server)
                     end,
                 },

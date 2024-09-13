@@ -1,3 +1,5 @@
+-- TODO: see if the "mini" one is better
+
 return {
     "windwp/nvim-autopairs",
     dependencies = { "hrsh7th/nvim-cmp" },

@@ -11,6 +11,9 @@ return {
                 padding = 0,
                 margin = { horizontal = 0 },
             },
+            hide = {
+                cursorline = "focused_win", -- "focused_win" | bool
+            },
             render = function(props)
                 local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
                 if filename == "" then
@@ -21,8 +24,9 @@ return {
                 return {
                     ft_icon and { " ", ft_icon, " ", guibg = ft_color, guifg = helpers.contrast_color(ft_color) } or "",
                     " ",
-                    { filename, gui = modified and "bold,italic" or "bold" },
+                    { filename, gui = modified and "bold,italic,underline" or "bold" },
                     " ",
+                    modified and { "[+]" } or "",
                     guibg = "#44406e",
                 }
             end,

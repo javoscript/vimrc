@@ -4,6 +4,21 @@ return {
     { "numToStr/Comment.nvim", opts = {} },
     "tpope/vim-surround",
     {
+        'akinsho/bufferline.nvim',
+        version = "*",
+        dependencies = 'nvim-tree/nvim-web-devicons',
+        config = function()
+            local bufferline = require('bufferline')
+            bufferline.setup {
+                options = {
+                    mode = "tabs",                 -- "tabs" | "buffers" (default)
+                    always_show_bufferline = false,
+                    show_duplicate_prefix = false, -- whether to show duplicate buffer prefix
+                },
+            }
+        end
+    },
+    {
         "mg979/vim-visual-multi",
         init = function()
             vim.g.VM_default_mappings = 0

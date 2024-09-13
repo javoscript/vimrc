@@ -4,6 +4,7 @@ vim.g.maplocalleader = " "
 local opts = { noremap = true, silent = true, nowait = true }
 local term_opts = { silent = true }
 
+
 -- One line only when text is wrapped
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
@@ -60,6 +61,7 @@ vim.keymap.set("n", "<Leader>e", "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_n
 vim.keymap.set("n", "<Leader>E", "<cmd>lua MiniFiles.open(vim.uv.cwd(), false)<cr>", opts)
 
 vim.keymap.set("n", "<Leader>gb", "<cmd>Gitsigns blame_line<cr>", opts)
+vim.keymap.set("n", "<Leader>gB", "<cmd>Gitsigns blame<cr>", opts)
 vim.keymap.set("n", "<Leader>gw", "<cmd>Gitsigns preview_hunk<cr>", opts)
 vim.keymap.set("n", "<Leader>gn", "<cmd>Gitsigns next_hunk<cr>", opts)
 vim.keymap.set("n", "<Leader>gp", "<cmd>Gitsigns prev_hunk<cr>", opts)
@@ -106,7 +108,7 @@ vim.keymap.set("n", "<c-w>z", "<cmd>lua require('zen-mode').toggle({window={widt
 
 -- telescope
 vim.keymap.set("n", "<Leader> ", "<cmd>Telescope find_files<cr>", opts)
-vim.keymap.set("n", "<Leader>f", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
+vim.keymap.set("n", "<Leader>f", "<cmd>Telescope grep_string theme=ivy<cr>", opts)
 vim.keymap.set("n", "<Leader>F", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
 
 -- lsp
@@ -139,22 +141,32 @@ vim.keymap.set("n", "<Leader>lw", "<cmd>Telescope diagnostics<cr>", opts)
 -- opts
 vim.keymap.set("n", "<Leader>oc", "<cmd>TSContextToggle<cr>", opts)
 vim.keymap.set("n", "<Leader>oh", "<cmd>nohlsearch<cr>", opts)
+vim.keymap.set("n", "<Leader>ob", "<cmd>Gitsigns toggle_current_line_blame<cr>", opts)
+-- vim.keymap.set("n", "<Leader>on", "<cmd>lua require('incline').toggle()<cr>", opts)
 
 -- telescope
+vim.keymap.set("n", "<Leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
 vim.keymap.set("n", "<Leader>sC", "<cmd>Telescope colorscheme<cr>", opts)
 vim.keymap.set("n", "<Leader>sc", "<cmd>Telescope commands<cr>", opts)
 vim.keymap.set("n", "<Leader>sg", "<cmd>Telescope git_status<cr>", opts)
+vim.keymap.set("n", "<Leader>sGb", "<cmd>Telescope git_branches<cr>", opts)
+vim.keymap.set("n", "<Leader>sGc", "<cmd>Telescope git_commits<cr>", opts)
+vim.keymap.set("n", "<Leader>sGs", "<cmd>Telescope git_stash<cr>", opts)
 vim.keymap.set("n", "<Leader>sh", "<cmd>Telescope help_tags<cr>", opts)
 vim.keymap.set("n", "<Leader>sk", "<cmd>Telescope keymaps<cr>", opts)
 vim.keymap.set("n", "<Leader>sm", "<cmd>Telescope man_pages<cr>", opts)
+vim.keymap.set("n", "<Leader>so", "<cmd>Telescope vim_options<cr>", opts)
 vim.keymap.set("n", "<Leader>sq", "<cmd>Telescope quickfix<cr>", opts)
-vim.keymap.set("n", "<Leader>sr", "<cmd>Telescope registers<cr>", opts)
+vim.keymap.set("n", "<Leader>sl", "<cmd>Telescope quickfixhistory<cr>", opts)
+vim.keymap.set("n", "<Leader>sr", "<cmd>Telescope resume<cr>", opts)
+vim.keymap.set("n", "<Leader>sR", "<cmd>Telescope registers<cr>", opts)
 
 -- quickfix list
+vim.keymap.set("n", "<Leader>qc", "<cmd>cclose<cr>", opts)
 vim.keymap.set("n", "<Leader>ql", "<cmd>TodoQuickFix<cr>", opts)
-vim.keymap.set("n", "<Leader>qq", "<cmd>cn<cr>", opts)
+vim.keymap.set("n", "<Leader>qn", "<cmd>cn<cr>", opts) -- next item in quickfix list
 vim.keymap.set("n", "<Leader>qo", "<cmd>copen<cr>", opts)
-vim.keymap.set("n", "<Leader>qp", "<cmd>cp<cr>", opts)
+vim.keymap.set("n", "<Leader>qp", "<cmd>cp<cr>", opts) -- prev item in quickfix list
 
 -- tests
 vim.keymap.set("n", "<Leader>ta", "<cmd>TestSuite<cr>", opts)
@@ -162,8 +174,19 @@ vim.keymap.set("n", "<Leader>tf", "<cmd>TestFile<cr>", opts)
 vim.keymap.set("n", "<Leader>tn", "<cmd>TestNearest<cr>", opts)
 vim.keymap.set("n", "<Leader>tl", "<cmd>TestLast<cr>", opts)
 
+-- "artisan tinker"
+vim.keymap.set("n", "<Leader>ti", "<cmd>vsplit term://php artisan tinker<cr>i", opts)
+
+-- removes empty lines from the top
+-- removes `<?php` tag from first line if present
+-- removes empty lines again after removing tag
+vim.keymap.set("n", "<Leader>tr",
+    "<cmd>vsplit term://sed -e '/./,$!d' -- %:p \\| sed -e '1!b' -e '/<?php/d' \\| sed -e '/./,$!d' \\| php artisan tinker -n --ansi --execute \\| \\cat<cr><C-\\><C-n>",
+    vim.tbl_extend('keep', opts, { desc = "Run in `artisan tinker`" })
+)
+
 -- terminal
-vim.keymap.set("n", "<Leader>tT", "<cmd>tab term<cr>", opts)
+vim.keymap.set("n", "<Leader>tT", "<cmd>tab term<cr>", vim.tbl_extend('keep', opts, { desc = "Open Terminal" }))
 
 -- Stay in visual mode when indenting
 vim.keymap.set("v", "<", "<gv", opts)

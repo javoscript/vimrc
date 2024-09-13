@@ -27,7 +27,7 @@ vim.opt.tabstop = 4
 vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.numberwidth = 2
+vim.opt.numberwidth = 3
 vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
 vim.opt.scrolloff = 4
@@ -50,3 +50,10 @@ vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.opt.shortmess:append("c")
 -- vim.opt.iskeyword:append("-")
 vim.opt.formatoptions:remove({ "c", "r", "o" })
+
+-- fold with treesitter
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldtext = 'v:lua.vim.treesitter.foldtext()'
+vim.opt.foldenable = false
+vim.opt.foldlevelstart = 99

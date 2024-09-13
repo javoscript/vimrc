@@ -31,7 +31,7 @@ return {
             -- Run API request
             { "<leader>ii", "<cmd>HurlRunnerAt<CR>",         desc = "Run Api request" },
             { "<leader>il", "<cmd>HurlShowLastResponse<CR>", desc = "Run last response" },
-            { "<leader>ie", "<cmd>HurlManageVariable<CR>",   desc = "Run last response" },
+            { "<leader>ie", "<cmd>HurlManageVariable<CR>",   desc = "Set env variable" },
             { "<leader>iI", "<cmd>HurlRunner<CR>",           desc = "Run All requests" },
             { "<leader>it", "<cmd>HurlRunnerToEntry<CR>",    desc = "Run Api request to entry" },
             { "<leader>im", "<cmd>HurlToggleMode<CR>",       desc = "Hurl Toggle Mode" },

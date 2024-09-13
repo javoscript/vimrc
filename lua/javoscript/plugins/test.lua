@@ -18,7 +18,8 @@ return {
             },
             callback = function(_ev)
                 vim.cmd([[
-                    let test#php#phpunit#executable = "php artisan test --configuration phpunit-gitlab-ci.xml --exclude external"
+                    " let test#php#phpunit#executable = "php artisan test --configuration phpunit-gitlab-ci.xml --exclude external"
+                    let test#php#phpunit#executable = "php artisan test --configuration phpunit.mysql.xml --exclude external"
                 ]])
             end,
         })
