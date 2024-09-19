@@ -88,6 +88,12 @@ return {
                 },
                 rust_analyzer = {},
                 phpactor = {
+                    capabilities = {
+                        hoverProvider = false,
+                        textDocument = {
+                            hover = {}
+                        }
+                    },
                     init_options = {
                         ["language_server_worse_reflection.inlay_hints.enable"] = true,
                         ["language_server_worse_reflection.inlay_hints.params"] = true,
@@ -102,7 +108,7 @@ return {
                         end,
                     },
                 },
-                -- intelephense = {},
+                intelephense = {},
                 tailwindcss = {},
                 ts_ls = {
                     init_options = {
@@ -176,21 +182,21 @@ return {
             capabilities.textDocument.completion.completionItem.snippetSupport = true
             capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-            -- local mason_lspconfig = require("mason-lspconfig")
-            --
-            -- mason_lspconfig.setup({
-            --     ensure_installed = vim.tbl_keys(servers),
-            --     automatic_installation = true,
-            -- })
-            --
-            -- mason_lspconfig.setup_handlers({
-            --     function(server_name)
-            --         require("lspconfig")[server_name].setup({
-            --             settings = servers[server_name],
-            --             filetypes = (servers[server_name] or {}).filetypes,
-            --         })
-            --     end,
-            -- })
+            local mason_lspconfig = require("mason-lspconfig")
+
+            mason_lspconfig.setup({
+                ensure_installed = vim.tbl_keys(servers),
+                automatic_installation = true,
+            })
+
+            mason_lspconfig.setup_handlers({
+                function(server_name)
+                    require("lspconfig")[server_name].setup({
+                        settings = servers[server_name],
+                        filetypes = (servers[server_name] or {}).filetypes,
+                    })
+                end,
+            })
 
             require('mason-lspconfig').setup {
                 handlers = {
