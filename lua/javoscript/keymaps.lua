@@ -141,8 +141,8 @@ vim.keymap.set("n", "<Leader>lw", "<cmd>Telescope diagnostics<cr>", opts)
 -- opts
 vim.keymap.set("n", "<Leader>oc", "<cmd>TSContextToggle<cr>", opts)
 vim.keymap.set("n", "<Leader>oh", "<cmd>nohlsearch<cr>", opts)
+vim.keymap.set("n", "<Leader>oi", "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>", opts)
 vim.keymap.set("n", "<Leader>ob", "<cmd>Gitsigns toggle_current_line_blame<cr>", opts)
--- vim.keymap.set("n", "<Leader>on", "<cmd>lua require('incline').toggle()<cr>", opts)
 
 -- telescope
 vim.keymap.set("n", "<Leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
@@ -177,11 +177,12 @@ vim.keymap.set("n", "<Leader>tl", "<cmd>TestLast<cr>", opts)
 -- "artisan tinker"
 vim.keymap.set("n", "<Leader>ti", "<cmd>vsplit term://php artisan tinker<cr>i", opts)
 
+-- save file
 -- removes empty lines from the top
 -- removes `<?php` tag from first line if present
 -- removes empty lines again after removing tag
 vim.keymap.set("n", "<Leader>tr",
-    "<cmd>vsplit term://sed -e '/./,$!d' -- %:p \\| sed -e '1!b' -e '/<?php/d' \\| sed -e '/./,$!d' \\| php artisan tinker -n --ansi --execute \\| \\cat<cr><C-\\><C-n>",
+    "<cmd>w<bar>vsplit term://sed -e '/./,$!d' -- %:p \\| sed -e '1!b' -e '/<?php/d' \\| sed -e '/./,$!d' \\| php artisan tinker -n --ansi --execute \\| \\cat<cr><C-\\><C-n>",
     vim.tbl_extend('keep', opts, { desc = "Run in `artisan tinker`" })
 )
 

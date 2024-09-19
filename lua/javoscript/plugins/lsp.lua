@@ -83,18 +83,26 @@ return {
                     Lua = {
                         workspace = { checkThirdParty = false },
                         telemetry = false,
+                        hint = { enable = true },
                     },
                 },
                 rust_analyzer = {},
-                phpactor = { -- FIX: not working
-                    capabilities = {
-                        hoverProvider = false,
-                        textDocument = {
-                            hover = {}
-                        }
-                    }
+                phpactor = {
+                    init_options = {
+                        ["language_server_worse_reflection.inlay_hints.enable"] = true,
+                        ["language_server_worse_reflection.inlay_hints.params"] = true,
+                        ["language_server_worse_reflection.inlay_hints.types"] = true,
+                    },
+                    handlers = {
+                        ["textDocument/inlayHint"] = function(err, result, ...)
+                            for _, res in ipairs(result) do
+                                res.label = res.label .. ": "
+                            end
+                            vim.lsp.handlers["textDocument/inlayHint"](err, result, ...)
+                        end,
+                    },
                 },
-                intelephense = {},
+                -- intelephense = {},
                 tailwindcss = {},
                 ts_ls = {
                     init_options = {
@@ -102,36 +110,62 @@ return {
                             {
                                 name = "@vue/typescript-plugin",
                                 location = vue_language_server_path,
-                                languages = {
-                                    "typescript",
-                                    "javascript",
-                                    "javascriptreact",
-                                    "typescriptreact",
-                                    "vue",
+                                languages = { "vue" },
+                            },
+                        },
+                    },
+                    -- NOTE: To enable hybridMode, change HybrideMode to true in volar and uncomment the following filetypes block.
+                    -- filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+                    settings = {
+                        typescript = {
+                            inlayHints = {
+                                includeInlayParameterNameHints = "all",
+                                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                                includeInlayFunctionParameterTypeHints = true,
+                                includeInlayVariableTypeHints = true,
+                                includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+                                includeInlayPropertyDeclarationTypeHints = true,
+                                includeInlayFunctionLikeReturnTypeHints = true,
+                                includeInlayEnumMemberValueHints = true,
+                            },
+                        },
+                    },
+                },
+                volar = {
+                    root_dir = require("lspconfig").util.root_pattern(
+                        "vue.config.js",
+                        "vue.config.ts",
+                        "nuxt.config.js",
+                        "nuxt.config.ts"
+                    ),
+                    init_options = {
+                        vue = {
+                            hybridMode = false,
+                        },
+                    },
+                    settings = {
+                        typescript = {
+                            inlayHints = {
+                                enumMemberValues = {
+                                    enabled = true,
+                                },
+                                functionLikeReturnTypes = {
+                                    enabled = true,
+                                },
+                                propertyDeclarationTypes = {
+                                    enabled = true,
+                                },
+                                parameterTypes = {
+                                    enabled = true,
+                                    suppressWhenArgumentMatchesName = true,
+                                },
+                                variableTypes = {
+                                    enabled = true,
                                 },
                             },
                         },
                     },
-                    filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-                },
-                volar = {},
-                -- emmet_ls = {
-                --     filetypes = {
-                --         "css",
-                --         "eruby",
-                --         "html",
-                --         "javascript",
-                --         "javascriptreact",
-                --         "less",
-                --         "sass",
-                --         "scss",
-                --         "svelte",
-                --         "pug",
-                --         "typescriptreact",
-                --         "vue",
-                --         "blade", -- for .blade.php files
-                --     },
-                -- },
+                }
             }
 
             require("mason").setup()
