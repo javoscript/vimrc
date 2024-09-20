@@ -1,6 +1,4 @@
--- TODO: see if the "mini" one is better
-
-return {
+return { -- TODO: see if the "mini" one is better
     "windwp/nvim-autopairs",
     dependencies = { "hrsh7th/nvim-cmp" },
     config = function()

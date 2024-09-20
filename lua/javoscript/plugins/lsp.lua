@@ -91,8 +91,8 @@ return {
                     capabilities = {
                         hoverProvider = false,
                         textDocument = {
-                            hover = {}
-                        }
+                            hover = {},
+                        },
                     },
                     init_options = {
                         ["language_server_worse_reflection.inlay_hints.enable"] = true,
@@ -171,16 +171,15 @@ return {
                             },
                         },
                     },
-                }
+                },
             }
 
             require("mason").setup()
             require("mason-lspconfig").setup()
 
-
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities.textDocument.completion.completionItem.snippetSupport = true
-            capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+            capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
             local mason_lspconfig = require("mason-lspconfig")
 
@@ -198,17 +197,17 @@ return {
                 end,
             })
 
-            require('mason-lspconfig').setup {
+            require("mason-lspconfig").setup({
                 handlers = {
                     function(server_name)
                         local server = servers[server_name] or {}
 
-                        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+                        server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 
-                        require('lspconfig')[server_name].setup(server)
+                        require("lspconfig")[server_name].setup(server)
                     end,
                 },
-            }
+            })
 
             require("lspconfig").gleam.setup({})
         end,

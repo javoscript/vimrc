@@ -109,7 +109,6 @@ return {
             },
         },
 
-
         opts = {
             disable_hint = true,
             commit_editor = {
@@ -128,5 +127,5 @@ return {
                 },
             },
         },
-    }
+    },
 }

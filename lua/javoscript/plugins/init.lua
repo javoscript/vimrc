@@ -4,19 +4,19 @@ return {
     { "numToStr/Comment.nvim", opts = {} },
     "tpope/vim-surround",
     {
-        'akinsho/bufferline.nvim',
+        "akinsho/bufferline.nvim",
         version = "*",
-        dependencies = 'nvim-tree/nvim-web-devicons',
+        dependencies = "nvim-tree/nvim-web-devicons",
         config = function()
-            local bufferline = require('bufferline')
-            bufferline.setup {
+            local bufferline = require("bufferline")
+            bufferline.setup({
                 options = {
-                    mode = "tabs",                 -- "tabs" | "buffers" (default)
+                    mode = "tabs", -- "tabs" | "buffers" (default)
                     always_show_bufferline = false,
                     show_duplicate_prefix = false, -- whether to show duplicate buffer prefix
                 },
-            }
-        end
+            })
+        end,
     },
     {
         "mg979/vim-visual-multi",
@@ -28,16 +28,12 @@ return {
             }
         end,
     },
-    { "folke/which-key.nvim",  opts = {} },
-    { "aserowy/tmux.nvim",     opts = {} },
+    { "folke/which-key.nvim", opts = {} },
+    { "aserowy/tmux.nvim", opts = {} },
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {},
-    },
-    {
-        "ggandor/leap.nvim", -- TODO: analyze folke/flash.nvim
-        dependencies = { "tpope/vim-repeat" },
     },
     {
         "iamcco/markdown-preview.nvim",

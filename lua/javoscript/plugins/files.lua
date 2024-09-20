@@ -12,7 +12,7 @@ return {
                     go_in_plus = "l",
                     go_out = "H",
                     go_out_plus = "h",
-                    synchronize = '<Leader>w',
+                    synchronize = "<Leader>w",
                 },
                 windows = {
                     preview = true,

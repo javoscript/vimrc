@@ -52,8 +52,8 @@ vim.opt.shortmess:append("c")
 vim.opt.formatoptions:remove({ "c", "r", "o" })
 
 -- fold with treesitter
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-vim.opt.foldtext = 'v:lua.vim.treesitter.foldtext()'
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 vim.opt.foldenable = false
 vim.opt.foldlevelstart = 99

@@ -4,7 +4,6 @@ vim.g.maplocalleader = " "
 local opts = { noremap = true, silent = true, nowait = true }
 local term_opts = { silent = true }
 
-
 -- One line only when text is wrapped
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
@@ -95,12 +94,15 @@ end)
 -- utils
 vim.keymap.set("n", "<Leader>ybp", '<cmd>let @+ = expand("%")<cr>', opts)
 vim.keymap.set("n", "<Leader>jq", "<cmd>tab terminal pbpaste | ijq<cr>", opts)
-vim.keymap.set("v", "<Leader>jq",
+vim.keymap.set(
+    "v",
+    "<Leader>jq",
     -- yank to the "j" register
     -- write to tmp file
     -- and open a terminal in a new tab with the ijq process
     '"jy <cmd>call writefile(getreg("j", 1, 1), "/tmp/nvim-ijq.txt")<cr> <bar> <cmd>tab terminal ijq /tmp/nvim-ijq.txt<cr>',
-    opts)
+    opts
+)
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "<Leader>dt", "<cmd>DBUIToggle<cr>", opts)
 vim.keymap.set("n", "<Leader>z", "<cmd>ZenMode<cr>", opts)
@@ -181,13 +183,15 @@ vim.keymap.set("n", "<Leader>ti", "<cmd>vsplit term://php artisan tinker<cr>i", 
 -- removes empty lines from the top
 -- removes `<?php` tag from first line if present
 -- removes empty lines again after removing tag
-vim.keymap.set("n", "<Leader>tr",
+vim.keymap.set(
+    "n",
+    "<Leader>tr",
     "<cmd>w<bar>vsplit term://sed -e '/./,$!d' -- %:p \\| sed -e '1!b' -e '/<?php/d' \\| sed -e '/./,$!d' \\| php artisan tinker -n --ansi --execute \\| \\cat<cr><C-\\><C-n>",
-    vim.tbl_extend('keep', opts, { desc = "Run in `artisan tinker`" })
+    vim.tbl_extend("keep", opts, { desc = "Run in `artisan tinker`" })
 )
 
 -- terminal
-vim.keymap.set("n", "<Leader>tT", "<cmd>tab term<cr>", vim.tbl_extend('keep', opts, { desc = "Open Terminal" }))
+vim.keymap.set("n", "<Leader>tT", "<cmd>tab term<cr>", vim.tbl_extend("keep", opts, { desc = "Open Terminal" }))
 
 -- Stay in visual mode when indenting
 vim.keymap.set("v", "<", "<gv", opts)
