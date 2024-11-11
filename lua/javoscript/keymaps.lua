@@ -141,10 +141,12 @@ vim.keymap.set("n", "<Leader>lR", "<cmd>LspRestart<cr>", opts)
 vim.keymap.set("n", "<Leader>lw", "<cmd>Telescope diagnostics<cr>", opts)
 
 -- opts
+vim.keymap.set("n", "<Leader>ob", "<cmd>Gitsigns toggle_current_line_blame<cr>", opts)
 vim.keymap.set("n", "<Leader>oc", "<cmd>TSContextToggle<cr>", opts)
 vim.keymap.set("n", "<Leader>oh", "<cmd>nohlsearch<cr>", opts)
 vim.keymap.set("n", "<Leader>oi", "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>", opts)
-vim.keymap.set("n", "<Leader>ob", "<cmd>Gitsigns toggle_current_line_blame<cr>", opts)
+vim.keymap.set("n", "<Leader>ol", "<cmd>IBLToggle<cr>", opts)
+vim.keymap.set("n", "<Leader>on", "<cmd>set number! relativenumber!<cr>", opts)
 
 -- telescope
 vim.keymap.set("n", "<Leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
@@ -214,3 +216,6 @@ vim.keymap.set("t", "<C-q>", "<C-\\><C-n>", term_opts)
 -- better option selection in option lists
 vim.keymap.set("c", "<C-j>", "<C-n>")
 vim.keymap.set("c", "<C-k>", "<C-p>")
+
+vim.keymap.set("n", "<Leader>gr", "<cmd>CellularAutomaton make_it_rain<cr>")
+vim.keymap.set("n", "<Leader>gl", "<cmd>CellularAutomaton game_of_life<cr>")

@@ -8,10 +8,10 @@ return {
             tmux = { enabled = false },
         },
         on_open = function()
-            require("incline").disable()
+            -- require("incline").disable()
         end,
         on_close = function()
-            require("incline").enable()
+            -- require("incline").enable()
         end,
     },
 }

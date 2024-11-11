@@ -35,7 +35,7 @@ return {
                         end,
                         formatters_by_ft = {
                             lua = { "stylua" },
-                            php = { "php_cs_fixer", "pint" },
+                            php = { "pint" },
                             markdown = { "injected", "markdownlint" },
                             html = { "rustywind", "prettier" }, -- eslint?
                             javascript = { "rustywind", "eslint_d" },
@@ -108,7 +108,15 @@ return {
                         end,
                     },
                 },
-                intelephense = {},
+                intelephense = {
+                    settings = {
+                        intelephense = {
+                            files = {
+                                maxSize = 10000000,
+                            },
+                        },
+                    },
+                },
                 tailwindcss = {},
                 ts_ls = {
                     init_options = {

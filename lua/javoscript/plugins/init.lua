@@ -1,4 +1,6 @@
 return {
+    -- TODO: neoclip -> clipboard manager in nvim
+    -- TODO: nvim-ufo -> for folds
     "nvim-lua/plenary.nvim",
     "editorconfig/editorconfig-vim",
     { "numToStr/Comment.nvim", opts = {} },
@@ -50,4 +52,6 @@ return {
             vim.g.undotree_SetFocusWhenToggle = 1
         end,
     },
+    { "tamton-aquib/duck.nvim" },
+    { "eandrju/cellular-automaton.nvim" },
 }

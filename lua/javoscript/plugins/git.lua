@@ -111,6 +111,7 @@ return {
 
         opts = {
             disable_hint = true,
+            process_spinner = false,
             commit_editor = {
                 kind = "auto",
             },

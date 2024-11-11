@@ -19,6 +19,26 @@ vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged", "BufEnter" }, {
     end,
 })
 
+local au_duck_nvim = vim.api.nvim_create_augroup("duck_nvim", { clear = true })
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+    group = au_duck_nvim,
+    pattern = {
+        vim.fn.expand("~") .. "/.config/nvim*",
+    },
+    callback = function(_ev)
+        require("duck").hatch("🐏")
+        require("duck").hatch("🐑")
+        require("duck").hatch("🐕")
+        require("duck").hatch("🐕")
+        require("duck").hatch("🐥")
+        require("duck").hatch("🐥")
+        require("duck").hatch("🐓")
+        require("duck").hatch("🐓")
+        require("duck").hatch("🧍")
+        require("duck").hatch("🧍")
+    end,
+})
+
 -- dbui
 vim.cmd([[
   autocmd FileType dbout setlocal nofoldenable

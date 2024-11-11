@@ -25,6 +25,7 @@ return {
                 },
                 file_ignore_patterns = {
                     ".*/vendor/.*",
+                    ".git/*",
                 },
                 mappings = {
                     i = {
@@ -34,16 +35,16 @@ return {
                         ["<C-j>"] = actions.move_selection_next,
                         ["<C-k>"] = actions.move_selection_previous,
 
-                        ["<C-c>"] = actions.close,
-                        ["<C-S-d>"] = actions.delete_buffer,
-
                         ["<CR>"] = actions.select_default,
                         ["<C-s>"] = actions.select_horizontal,
                         ["<C-v>"] = actions.select_vertical,
                         ["<C-t>"] = actions.select_tab,
 
-                        ["<C-u>"] = actions.preview_scrolling_up,
-                        ["<C-d>"] = actions.preview_scrolling_down,
+                        ["<C-b>"] = actions.preview_scrolling_up,
+                        ["<C-f>"] = actions.preview_scrolling_down,
+
+                        ["<C-c>"] = actions.close,
+                        ["<C-d>"] = actions.delete_buffer,
 
                         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
                         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
@@ -76,14 +77,21 @@ return {
                         ["gg"] = actions.move_to_top,
                         ["G"] = actions.move_to_bottom,
 
-                        ["<C-u>"] = actions.preview_scrolling_up,
-                        ["<C-d>"] = actions.preview_scrolling_down,
+                        ["dd"] = actions.delete_buffer,
+
+                        ["<C-b>"] = actions.preview_scrolling_up,
+                        ["<C-f>"] = actions.preview_scrolling_down,
 
                         ["<PageUp>"] = actions.results_scrolling_up,
                         ["<PageDown>"] = actions.results_scrolling_down,
 
                         ["?"] = actions.which_key,
                     },
+                },
+            },
+            pickers = {
+                find_files = {
+                    hidden = true,
                 },
             },
             extensions = {
