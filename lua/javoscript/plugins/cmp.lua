@@ -34,6 +34,7 @@ return {
                     { name = "path" },
                     { name = "luasnip" },
                     { name = "nvim_lsp_signature_help" }, -- TODO: check if needed
+                    { name = "laravel" },
                 },
                 formatting = {
                     fields = { "kind", "abbr", "menu" },
@@ -42,6 +43,7 @@ return {
                             nvim_lsp = "[LSP]",
                             buffer = "[Buffer]",
                             path = "[Path]",
+                            laravel = "[Laravel]",
                         })[entry.source.name]
                         return vim_item
                     end,

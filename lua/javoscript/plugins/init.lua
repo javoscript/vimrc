@@ -47,6 +47,13 @@ return {
         end,
     },
     {
+        "MeanderingProgrammer/render-markdown.nvim",
+        opts = {
+            file_types = { "markdown" },
+        },
+        ft = { "markdown" },
+    },
+    {
         "mbbill/undotree",
         config = function()
             vim.g.undotree_SetFocusWhenToggle = 1

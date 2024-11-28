@@ -6,12 +6,14 @@ return {
             "MunifTanjim/nui.nvim",
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
+            -- Optional, for markdown rendering with render-markdown.nvim
         },
         ft = "hurl",
         opts = {
             debug = false,
             show_notification = false,
             mode = "split",
+            auto_close = false,
             formatters = {
                 json = { "jq" },
                 html = {
@@ -25,6 +27,12 @@ return {
                     "-i",
                     "-q",
                 },
+            },
+            -- Default mappings for the response popup or split views
+            mappings = {
+                close = "q", -- Close the response popup or split view
+                next_panel = "<C-n>", -- Move to the next response popup window
+                prev_panel = "<C-p>", -- Move to the previous response popup window
             },
         },
         keys = {

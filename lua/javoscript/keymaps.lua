@@ -179,18 +179,7 @@ vim.keymap.set("n", "<Leader>tn", "<cmd>TestNearest<cr>", opts)
 vim.keymap.set("n", "<Leader>tl", "<cmd>TestLast<cr>", opts)
 
 -- "artisan tinker"
-vim.keymap.set("n", "<Leader>ti", "<cmd>vsplit term://php artisan tinker<cr>i", opts)
-
--- save file
--- removes empty lines from the top
--- removes `<?php` tag from first line if present
--- removes empty lines again after removing tag
-vim.keymap.set(
-    "n",
-    "<Leader>tr",
-    "<cmd>w<bar>vsplit term://sed -e '/./,$!d' -- %:p \\| sed -e '1!b' -e '/<?php/d' \\| sed -e '/./,$!d' \\| php artisan tinker -n --ansi --execute \\| \\cat<cr><C-\\><C-n>",
-    vim.tbl_extend("keep", opts, { desc = "Run in `artisan tinker`" })
-)
+vim.keymap.set("n", "<Leader>Li", "<cmd>vsplit term://php artisan tinker<cr>i", opts)
 
 -- terminal
 vim.keymap.set("n", "<Leader>tT", "<cmd>tab term<cr>", vim.tbl_extend("keep", opts, { desc = "Open Terminal" }))
