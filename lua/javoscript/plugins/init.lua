@@ -50,6 +50,18 @@ return {
         "MeanderingProgrammer/render-markdown.nvim",
         opts = {
             file_types = { "markdown" },
+            heading = {
+                sign = false,
+                icons = {},
+            },
+            code = {
+                sign = false,
+            },
+            checkbox = {
+                custom = {
+                    todo = { raw = "[-]", rendered = "▣ ", highlight = "RenderMarkdownTodo", scope_highlight = nil },
+                },
+            },
         },
         ft = { "markdown" },
     },

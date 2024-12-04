@@ -20,7 +20,7 @@ return {
         config = function()
             local laravel = require("laravel")
             local get_line_indent = require("laravel.utils").get_line_indent
-            local route_info_pos = "right"
+            local route_info_pos = "top"
 
             laravel.setup({
                 features = {
