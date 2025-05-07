@@ -1,6 +1,7 @@
 return {
     {
         "adalessa/laravel.nvim",
+        -- dev = true,
         dependencies = {
             "tpope/vim-dotenv",
             "nvim-telescope/telescope.nvim",
@@ -13,8 +14,10 @@ return {
             { "<leader>Lc", ":Laravel commands<cr>" },
             { "<leader>Lo", ":Laravel routes<cr>" },
             { "<leader>Le", ":Laravel related<cr>" },
+            { "<leader>Lf", ":Laravel gf<cr>" },
             { "<leader>Lr", ":Laravel resources<cr>" },
             { "<leader>Lh", ":Laravel history<cr>" },
+            { "<leader>Ltr", ":Laravel route_info toggle<cr>" },
         },
         event = { "VeryLazy" },
         config = function()
@@ -25,7 +28,7 @@ return {
             laravel.setup({
                 features = {
                     route_info = {
-                        enable = true,
+                        enable = false,
                         view = route_info_pos,
                     },
                     model_info = {
@@ -48,7 +51,8 @@ return {
                             { table.concat(route.methods, "|"), "comment" },
                             { " ", "comment" },
                             { route.uri, "comment" },
-                            { " ]", "comment" },
+                            { " ] ", "comment" },
+                            { route.name or "", "comment" },
                         },
                     }
 

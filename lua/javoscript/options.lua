@@ -8,6 +8,7 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.mouse = "a"
+vim.opt.laststatus = 3 -- suggested by avante.nvim
 -- vim.opt.pumheight = 20
 vim.opt.showmode = false
 vim.opt.showtabline = 1
@@ -25,8 +26,8 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.cursorline = true
-vim.opt.number = false
-vim.opt.relativenumber = false
+vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.numberwidth = 3
 vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
@@ -40,6 +41,7 @@ vim.opt.listchars = {
     tab = ">•",
     trail = "•",
 }
+vim.opt.confirm = true
 -- vim.opt.lazyredraw = true
 
 vim.g.loaded_netrw = 1

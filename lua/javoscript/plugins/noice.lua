@@ -6,8 +6,8 @@ return {
     event = "VeryLazy",
     opts = {
         lsp = {
-            signature = { enabled = false },
-            hover = { enabled = false },
+            signature = { enabled = true },
+            hover = { enabled = true },
         },
         messages = {
             view_search = "notify",

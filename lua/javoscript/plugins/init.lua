@@ -71,6 +71,4 @@ return {
             vim.g.undotree_SetFocusWhenToggle = 1
         end,
     },
-    { "tamton-aquib/duck.nvim" },
-    { "eandrju/cellular-automaton.nvim" },
 }

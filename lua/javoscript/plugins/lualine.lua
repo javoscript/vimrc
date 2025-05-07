@@ -45,7 +45,7 @@ return {
         end
 
         local lsps = function()
-            return "(" .. tostring(#vim.tbl_keys(vim.lsp.buf_get_clients())) .. ")"
+            return "(" .. tostring(#vim.tbl_keys(vim.lsp.get_clients())) .. ")"
         end
 
         require("lualine").setup({

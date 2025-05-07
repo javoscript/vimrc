@@ -42,14 +42,17 @@ vim.keymap.set("n", "<Leader>ah", "<cmd>tabm -1<cr>", opts)
 vim.keymap.set("n", "<Leader>al", "<cmd>tabm +1<cr>", opts)
 vim.keymap.set("n", "<Leader>ao", "<cmd>tabonly<cr>", opts)
 
+vim.keymap.set("n", "<Leader>aC", "<cmd>AvanteClear<cr>", opts)
+
 vim.keymap.set(
     "n",
     "<Leader>b",
     "<cmd>lua require('telescope.builtin').buffers({ sort_mru = true, ignore_current_buffer = true })<cr>",
     opts
 )
-vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>")
-vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>")
+
+-- vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>")
+-- vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>")
 
 -- vim.keymap.set("n", "<Leader>c", "<cmd>bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 vim.keymap.set("n", "<Leader>c", "<cmd>bd<CR>", opts)
@@ -110,8 +113,8 @@ vim.keymap.set("n", "<c-w>z", "<cmd>lua require('zen-mode').toggle({window={widt
 
 -- telescope
 vim.keymap.set("n", "<Leader> ", "<cmd>Telescope find_files<cr>", opts)
-vim.keymap.set("n", "<Leader>f", "<cmd>Telescope grep_string theme=ivy<cr>", opts)
-vim.keymap.set("n", "<Leader>F", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
+vim.keymap.set("n", "<Leader>f", "<cmd>Telescope grep_string<cr>", opts)
+vim.keymap.set("n", "<Leader>F", "<cmd>Telescope live_grep<cr>", opts)
 
 -- lsp
 -- vim.keymap.set("n", "gD", ":vsplit | lua vim.lsp.buf.definition()<CR>", opts)
@@ -120,8 +123,8 @@ vim.keymap.set("n", "gD", "<cmd>lua require('telescope.builtin').lsp_definitions
 vim.keymap.set("n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", opts)
 vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
 vim.keymap.set("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
--- vim.keymap.set("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
-vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+vim.keymap.set("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
+-- vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
 vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 
 vim.keymap.set("n", "<Leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
@@ -144,9 +147,14 @@ vim.keymap.set("n", "<Leader>lw", "<cmd>Telescope diagnostics<cr>", opts)
 vim.keymap.set("n", "<Leader>ob", "<cmd>Gitsigns toggle_current_line_blame<cr>", opts)
 vim.keymap.set("n", "<Leader>oc", "<cmd>TSContextToggle<cr>", opts)
 vim.keymap.set("n", "<Leader>oh", "<cmd>nohlsearch<cr>", opts)
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>", opts)
 vim.keymap.set("n", "<Leader>oi", "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>", opts)
 vim.keymap.set("n", "<Leader>ol", "<cmd>IBLToggle<cr>", opts)
 vim.keymap.set("n", "<Leader>on", "<cmd>set number! relativenumber!<cr>", opts)
+
+-- lazy
+vim.keymap.set("n", "<Leader>pp", "<cmd>Lazy<cr>", opts)
+vim.keymap.set("n", "<Leader>ps", "<cmd>Lazy sync<cr>", opts)
 
 -- telescope
 vim.keymap.set("n", "<Leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)

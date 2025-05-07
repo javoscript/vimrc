@@ -16,17 +16,21 @@ return {
         local actions = require("telescope.actions")
 
         telescope.setup({
-            defaults = {
+            -- make "ivy" the default theme for all pickers
+            -- need to do it like this until a "defaults.theme = 'ivy'" is implemented in the options
+            defaults = vim.tbl_extend("force", require("telescope.themes").get_ivy(), {
                 sorting_strategy = "ascending",
                 layout_config = {
+                    height = 0.5,
+                    width = 0.5,
                     horizontal = {
                         prompt_position = "top",
                     },
                 },
-                file_ignore_patterns = {
-                    ".*/vendor/.*",
-                    ".git/*",
-                },
+                -- file_ignore_patterns = {
+                --     ".*/vendor/.*",
+                --     ".git/*",
+                -- },
                 mappings = {
                     i = {
                         ["<C-n>"] = actions.cycle_history_next,
@@ -88,19 +92,22 @@ return {
                         ["?"] = actions.which_key,
                     },
                 },
-            },
+            }),
             pickers = {
                 find_files = {
                     hidden = true,
+                    ignore = true,
                 },
             },
             extensions = {
                 ["ui-select"] = {
                     require("telescope.themes").get_dropdown({}),
                 },
+                fzf = {},
             },
         })
 
         telescope.load_extension("ui-select")
+        telescope.load_extension("fzf")
     end,
 }

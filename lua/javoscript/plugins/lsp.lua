@@ -2,8 +2,8 @@ return {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
-            { "williamboman/mason.nvim", config = true },
-            "williamboman/mason-lspconfig.nvim",
+            { "mason-org/mason.nvim", config = true },
+            "mason-org/mason-lspconfig.nvim",
             "hrsh7th/cmp-nvim-lsp",
             {
                 "stevearc/conform.nvim",
@@ -75,8 +75,7 @@ return {
         },
         config = function()
             local mason_registry = require("mason-registry")
-            local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
-                .. "/node_modules/@vue/language-server"
+            local vue_language_server_path = vim.fn.exepath("vue-language-server")
 
             local servers = {
                 lua_ls = {
@@ -189,33 +188,30 @@ return {
             capabilities.textDocument.completion.completionItem.snippetSupport = true
             capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-            local mason_lspconfig = require("mason-lspconfig")
-
-            mason_lspconfig.setup({
-                ensure_installed = vim.tbl_keys(servers),
-                automatic_installation = true,
-            })
-
-            mason_lspconfig.setup_handlers({
-                function(server_name)
-                    require("lspconfig")[server_name].setup({
-                        settings = servers[server_name],
-                        filetypes = (servers[server_name] or {}).filetypes,
-                    })
-                end,
-            })
-
             require("mason-lspconfig").setup({
-                handlers = {
-                    function(server_name)
-                        local server = servers[server_name] or {}
-
-                        server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-
-                        require("lspconfig")[server_name].setup(server)
-                    end,
-                },
+                ensure_installed = vim.tbl_keys(servers),
             })
+
+            -- mason_lspconfig.setup_handlers({
+            --     function(server_name)
+            --         require("lspconfig")[server_name].setup({
+            --             settings = servers[server_name],
+            --             filetypes = (servers[server_name] or {}).filetypes,
+            --         })
+            --     end,
+            -- })
+
+            -- require("mason-lspconfig").setup({
+            --     handlers = {
+            --         function(server_name)
+            --             local server = servers[server_name] or {}
+            --
+            --             server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+            --
+            --             require("lspconfig")[server_name].setup(server)
+            --         end,
+            --     },
+            -- })
 
             require("lspconfig").gleam.setup({})
         end,
